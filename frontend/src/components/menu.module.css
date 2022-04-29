@@ -1,0 +1,32 @@
+@value color_main, color_gray from '../common/colors.css';
+
+@font-face {
+    font-family: "Montserrat-bold";
+    src: url('../fonts/Montserrat-Bold.ttf');
+}
+
+
+.menu {
+    width: 100vw;
+    border: 1px solid color_gray;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.7rem 1rem;
+}
+
+a:active, a:link, a:visited {
+    color: color_main;
+    text-decoration: none;
+}
+
+.title {
+    color: color_main;
+    font-family: 'Montserrat-bold';
+    font-size: 2rem;
+    margin: 0;
+}
+
+.user_icon_img {
+    width: 2.5rem;
+}
