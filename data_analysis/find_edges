@@ -29,6 +29,7 @@ cv2.imshow('closed', closed)                                    # 노이즈 정�
 cv2.waitKey(0)
 
 final = cv2.threshold(edged, 127, 255, cv2.THRESH_BINARY_INV)   # 색칠할 수 있게 색상 반전 
+cv2.imwrite('img_edges.jpg', final[1])                          # 마지막 이미지 저장
 cv2.imshow('final', final[1])                                   # 마지막 이미지 출력
 cv2.waitKey(0)
 cv2.destroyAllWindows()                                         # 출력하고나면 창 모두 꺼지도록 정리
