@@ -1,20 +1,18 @@
-<!--
-# Petbbo
-![rogo](https://user-images.githubusercontent.com/84848848/158506311-2050851b-087a-42b7-9055-d90c5b9686fc.jpg)
+# Colrapy
+![rogo](https://user-images.githubusercontent.com/84848848/166402375-eb4ad641-73e1-4df8-8ea0-af33bd9339f6.jpg)
 
-## :dog: Petbbo(펫뽀)는?
-- 반려동물을 키우는 사람들에게 실시간 동물 병원 정보와 반려동물의 질병에 대한 정보를 제공하고, 사용자 간의 정보 공유나 소통이 가능한 서비스
-- 동물병원에 대한 정보가 부족하여 생기는 불편함을 해소하고, 반려 동물의 질병에 대한 정확하고 유용한 정보를 제공하고자 하는 취지에 만들게 된 서비스
-
+## :art: Colrapy(컬라피)는? 
+- 색체 심리 검사인 CRR 검사와 스트레스 지수 측정을 통해 자신의 정신 건강 상태를 파악한 뒤, 결과에 따른 색 추천과 그림 그리기, 색칠하기 기능을 통한 컬러 테라피를 제공하는 서비스
+- 코로나 19의 장기화로 집안에서의 생활이 보편화되면서 우울감을 겪는 코로나 블루 현상을 호소하는 사람들이 증가하였고, 이에 따라 자신의 정신 건강 상태를 살피고 적절한 대처를 하는 것이 중요하다고 판단하여 기획한 서비스
   ### FrontEnd members<br>
-
-    - 이현서 / 장서령
+    - 장서령
   ### BackEnd members
+    - 황금미
+  ### Data & Machine Learning
+    - 박민재, 이현서
 
-    - 박민재 / 황금미
-
-:cat:
-[Figma 링크](https://www.figma.com/file/PjMQ3hCBJEdbaTDBqTSVlj/%EC%A1%B8%ED%94%84_Petbbo?node-id=0%3A1)
+:black_nib:
+[Figma 링크]()
 
 <a href="https://www.figma.com//"><img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=FIGMA&logoColor=white"/></a>
 <a href="https://jupyter.org/"><img src="https://img.shields.io/badge/Jupyternotebook-F37626?style=flat-square&logo=Jupyter&logoColor=white"/></a>
@@ -33,7 +31,7 @@
 6. 기타
 
 ## 개요
-- 프로젝트 이름 : Petbbo(펫뽀)
+- 프로젝트 이름 : Colrapy(컬라피)
 - 개발 기간 : 2022년 1월 5일 ~ 2022년 6월 8일
 - 개발 언어 : JavaScript, HTML, CSS, Python
 - 개발 라이브러리 : React, Pycharm
@@ -49,4 +47,3 @@
 ## 고객 반응 및 개선
 
 ## 기타
--->

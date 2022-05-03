@@ -1,9 +1,12 @@
 import styles from './app.module.css';
+import Menu from './components/menu';
 
 function App() {
   return (
     <div className={styles.app}>
-      <h1>Colrapy</h1>
+      <Menu>
+        
+      </Menu>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+"""
+* hyeonseo
+* 스트레스(RSS-10) 5개 질문 랜덤 뽑기 -> csv 파일로 저장
+* dataframe 랜덤 이용 참고: https://zephyrus1111.tistory.com/49
+"""
+
+import pandas as pd
+
+df = pd.read_csv('data_csv/stress_question.csv', header=None, encoding='utf-8')   # csv -> dataFrame 변환
+random5 = df.sample(n=5, replace=True)                                            # 비복원으로 랜덤5개 추출
+
+random5.to_csv('data_result/stress_random5.csv', header=False, index=False, encoding='utf-8-sig')  # dataFrame에서 csv 변환 후 저장
