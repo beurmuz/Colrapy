@@ -1,4 +1,6 @@
-hyeonseo - 사진 엣지 찾기(사용자가 만드는 템플릿)
+hyeonseo
+* 사진 엣지 찾기(사용자가 만드는 템플릿)
+* python, openCV 사용
 
 import cv2, sys
 from matplotlib import pyplot as plt
