@@ -2,6 +2,7 @@ hyeonseo
 * 사진 엣지 찾기 예시(사용자가 만드는 템플릿)
 * python, openCV 사용
 * 추가할것: 데이터베이스 연동 이미지 불러오기
+* 문제: 사진마다 적절한 임계값 다름 -> 여러 사진 시도해보고 가장 적절한 값으로 조정 필요
 
 import cv2, sys
 from matplotlib import pyplot as plt
