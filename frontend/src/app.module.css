@@ -1,11 +1,59 @@
+@value color_white, color_gray from './common/colors.css';
+@value response_width, response_padding, basic_padding, screen_padding from './common/set.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
-  margin: 0;
+    width: 100%;
+    margin: 0px;
+    font-size: 1.8rem;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .app {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    color: color_white;
+    font-size: 1.3rem;
+    font-weight: 400;
+    transition: transform 200ms ease-in;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+.header {
+    padding: screen_padding;
+    border-bottom: 1px solid color_gray;
+}
+
+.content {
+    padding: screen_padding;
+    height: 90vh;
+}
+
+@media screen and (max-width: response_width) {
+    .header {
+        padding: response_padding;
+    }
+    .content {
+        padding: response_padding;
+    }
 }

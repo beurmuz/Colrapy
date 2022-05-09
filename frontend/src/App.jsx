@@ -1,12 +1,16 @@
 import styles from './app.module.css';
-import Menu from './components/menu';
+import Header from './components/header';
+import Main from './components/pages/main';
 
 function App() {
   return (
     <div className={styles.app}>
-      <Menu>
-        
-      </Menu>
+      <div className={styles.header}>
+        <Header />
+      </div>
+      <div className={styles.content}>
+        <Main />
+      </div>
     </div>
   );
 }
