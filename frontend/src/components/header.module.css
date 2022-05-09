@@ -1,18 +1,11 @@
 @value color_main, color_gray from '../common/colors.css';
+@value response_width, response_padding from '../common/set.css';
 
-@font-face {
-    font-family: "Montserrat-bold";
-    src: url('../fonts/Montserrat-Bold.ttf');
-}
-
-
-.menu {
-    width: 100vw;
-    border: 1px solid color_gray;
+.header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.7rem 1rem;
+    margin: 0 auto;
 }
 
 a:active, a:link, a:visited {
@@ -22,11 +15,14 @@ a:active, a:link, a:visited {
 
 .title {
     color: color_main;
-    font-family: 'Montserrat-bold';
+    font-family: 'Montserrat', sans-serif;
+    font-weight : 800;
     font-size: 2rem;
-    margin: 0;
+    margin: auto 0;
 }
+
 
 .user_icon_img {
     width: 2.5rem;
+    margin: auto 0;
 }
