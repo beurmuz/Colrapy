@@ -1,6 +1,8 @@
 import styles from './app.module.css';
 import Header from './components/header';
-import Main from './components/pages/main';
+import Main from './components/pages/main_page/main';
+import Login from './components/pages/login_page/login';
+import Join from './components/pages/join_page/join';
 
 function App() {
   return (
@@ -9,7 +11,9 @@ function App() {
         <Header />
       </div>
       <div className={styles.content}>
-        <Main />
+        {/* <Main /> */}
+        {/* <Login /> */}
+        <Join />
       </div>
     </div>
   );

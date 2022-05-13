@@ -1,5 +1,5 @@
-@value color_main from '../../common/colors.css';
-@value response_width, response_padding, basic_padding from '../../common/set.css';
+@value color_main from '../../../common/colors.css';
+@value response_width, response_padding, basic_padding from '../../../common/set.css';
 
 .main_box {
     height: 100%;

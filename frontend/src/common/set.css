@@ -1,6 +1,7 @@
 /* padding */
 @value basic_padding: 1rem;
 @value screen_padding: 1rem 17rem;
+@value button_padding: 0.3rem 1rem;
 
 /* 반응형 */
 /* 가로사이즈 */
