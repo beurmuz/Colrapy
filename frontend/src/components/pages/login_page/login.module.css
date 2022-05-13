@@ -1,0 +1,15 @@
+@value basic_padding from '../../../common/set.css';
+
+.login_box {
+    height: 100%;
+}
+
+.button_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.find_box {
+    padding: basic_padding;
+    font-size: 1.2rem;
+}

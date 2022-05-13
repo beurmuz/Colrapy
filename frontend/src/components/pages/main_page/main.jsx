@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './main.module.css';
-import Button from '../button';
+import Button from '../../button';
 
 const Main = (props) => (
     <div className={styles.main_box}>

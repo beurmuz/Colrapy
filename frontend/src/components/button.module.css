@@ -1,8 +1,12 @@
 @value color_main from '../common/colors.css';
-@value response_width, response_padding, basic_padding from '../common/set.css';
+@value response_width, response_padding, basic_padding, button_padding from '../common/set.css';
+
+.login_box {
+    height: 90vh;
+}
 
 .button_box {
-    padding: basic_padding;
+    padding: button_padding;
 }
 
 button {
@@ -11,8 +15,16 @@ button {
     background-color: color_main;
 }
 
-/* @media screen and (max-width: response_width) {
+.google {
+    background-color: rgb(189, 189, 189);
+}
+
+.naver {
+    background-color: #1EC800;
+}
+
+@media screen and (max-width: response_width) {
     button {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
-} */
+}
