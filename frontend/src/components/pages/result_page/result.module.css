@@ -1,0 +1,34 @@
+@value basic_padding from '../../../common/set.css';
+@value color_white, color_gray, color_main, color_main_soft from '../../../common/colors.css';
+
+.template_item {
+    
+}
+
+.template_image {
+    padding: basic_padding;
+    width: 80%;
+}
+
+.color_list_wrap {
+}
+
+.color_list {
+    margin: 0;
+    padding: 0;
+}
+.color_item {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    list-style: none;
+    margin: 0;
+    padding: calc(basic_padding/2);
+}
+
+.color_color {
+    width: 3.8rem;
+    height: 3.8rem;
+    border: 1px solid color_gray;
+    border-radius: 10rem;
+}

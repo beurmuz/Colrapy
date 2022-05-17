@@ -11,8 +11,8 @@ const Main = (props) => {
     return( 
         <div className={styles.main_box}>
             <div className={styles.intro_content}>
-                <p>오늘 당신의 기분은 어떤가요?</p>
-                <p>회원가입하고 컬라피에서 나의 심리상태를 알아보세요!</p>
+                <h2>오늘 당신의 기분은 어떤가요?</h2>
+                <h2>회원가입하고 컬라피에서 나의 심리상태를 알아보세요!</h2>
             </div>
             <Button content={'3초만에 회원가입하기'} onClick={send_route}/>
         </div>
