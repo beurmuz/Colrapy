@@ -99,7 +99,7 @@ const Join = (props) => {
                 </div>
 
                 <div className={styles.password_check_box}>
-                <label htmlFor="user_password_check">비밀번호체크</label><br/> <p />
+                {/* <label htmlFor="user_password_check">비밀번호체크</label><br/> <p /> */}
                     <input name="user-password-user_password_check" type="password" value={password_check} required />
                     {password_error && <div>비밀번호가 일치하지 않습니다.</div>}
                 </div>
@@ -126,8 +126,8 @@ const Join = (props) => {
                         <input type='checkbox' className={styles.check_button}></input>
                     </div>
                 </div>
+                <Button content={'회원가입하기'}/>
             </form>
-            <Button content={'회원가입하기'}/>
         </div>
     );
 }
