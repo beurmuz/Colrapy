@@ -6,6 +6,7 @@ import Login from './components/pages/login_page/login';
 import Join from './components/pages/join_page/join';
 import Findpw from './components/pages/findpw_page/findpw';
 import Diary from './components/pages/diary_page/diary';
+import Poll from './components/pages/poll_page/poll';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/join' element={ <Join /> } />
             <Route path='/findpw' element={ <Findpw /> } />
             <Route path='/diary' element={ <Diary /> } />
+            <Route path='/poll' element={ <Poll /> } />
           </Routes>
         </BrowserRouter>
       </div>
