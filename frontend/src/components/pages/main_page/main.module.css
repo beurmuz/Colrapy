@@ -9,7 +9,6 @@
 }
 
 .intro_content {
-    padding: basic_padding;
     height: 50vh;
     display: flex;
     flex-direction: column;

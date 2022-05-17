@@ -31,6 +31,14 @@ h2 {
     color: color_main;
 }
 
+h3 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
+    padding: basic_padding;
+    color: color_main;
+}
+
 button {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -55,7 +63,7 @@ button:hover {
 
 .content {
     padding: screen_padding;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 

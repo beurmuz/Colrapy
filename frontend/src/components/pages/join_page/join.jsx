@@ -81,7 +81,7 @@ const Join = (props) => {
 
     return (
         <div className={styles.join_form}>
-            <h1 className={styles.page_title}>회원가입</h1>
+            <h2 className={styles.page_title}>회원가입</h2>
             <form>
                 <div className={styles.email_box}>
                     <label htmlFor="user_email">이메일</label> <p />

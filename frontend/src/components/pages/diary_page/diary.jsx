@@ -10,20 +10,20 @@ const Diary = (props) => {
                 <h2>오늘 무엇을 했나요?</h2>
                 <div className={styles.act_choice_wrap}>
                     <ul className={styles.act_choice_list}>
-                        <li>데이트</li>
-                        <li>회사</li>
-                        <li>운동</li>
-                        <li>휴식</li>
-                        <li>영화</li>
-                        <li>독서</li>
-                        <li>게임</li>
-                        <li>친구</li>
-                        <li>가족</li>
-                        <li>쇼핑</li>
-                        <li>산책</li>
-                        <li>청소</li>
-                        <li>목욕</li>
-                        <li>+</li>
+                        <li className={styles.act_choice_item}>데이트</li>
+                        <li className={styles.act_choice_item}>회사</li>
+                        <li className={styles.act_choice_item}>운동</li>
+                        <li className={styles.act_choice_item}>휴식</li>
+                        <li className={styles.act_choice_item}>영화</li>
+                        <li className={styles.act_choice_item}>독서</li>
+                        <li className={styles.act_choice_item}>게임</li>
+                        <li className={styles.act_choice_item}>친구</li>
+                        <li className={styles.act_choice_item}>가족</li>
+                        <li className={styles.act_choice_item}>쇼핑</li>
+                        <li className={styles.act_choice_item}>산책</li>
+                        <li className={styles.act_choice_item}>청소</li>
+                        <li className={styles.act_choice_item}>목욕</li>
+                        <li className={styles.act_choice_item}>+</li>
                     </ul>
                 </div>
             </div>
