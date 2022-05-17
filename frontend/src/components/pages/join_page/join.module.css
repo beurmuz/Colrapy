@@ -13,10 +13,6 @@ input {
 }
 
 .page_title {
-    text-align: center;
-    font-size: 2rem;
-    margin: 0;
-    padding: basic_padding;
 }
 
 .email_box, .username_box, .password_box, .password_check_box, .age_box {
