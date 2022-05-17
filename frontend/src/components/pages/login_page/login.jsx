@@ -5,6 +5,7 @@ import Button from '../../button';
 const Login = (props) => {
     return (
         <div className={styles.login_box}>
+            <h2 className={styles.page_title}>로그인</h2>
             <div className={styles.button_box}>
                 <Button content={'구글로 회원가입/로그인'} domain_name={'google'}/>
                 <Button content={'네이버로 회원가입/로그인'} domain_name={'naver'} />

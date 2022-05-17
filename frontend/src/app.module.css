@@ -1,4 +1,4 @@
-@value color_white, color_gray from './common/colors.css';
+@value color_white, color_gray, color_main from './common/colors.css';
 @value response_width, response_padding, basic_padding, screen_padding from './common/set.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
 * {
@@ -21,6 +21,14 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+h2 {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 0;
+    padding: basic_padding;
+    color: color_main;
 }
 
 button {
@@ -49,6 +57,7 @@ button:hover {
     padding: screen_padding;
     height: 90vh;
 }
+
 
 @media screen and (max-width: response_width) {
     .header {
