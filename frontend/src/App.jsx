@@ -7,6 +7,7 @@ import Join from './components/pages/join_page/join';
 import Findpw from './components/pages/findpw_page/findpw';
 import Diary from './components/pages/diary_page/diary';
 import Poll from './components/pages/poll_page/poll';
+import Mypage from './components/pages/mypage_page/mypage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/findpw' element={ <Findpw /> } />
             <Route path='/diary' element={ <Diary /> } />
             <Route path='/poll' element={ <Poll /> } />
+            <Route path='/mypage' element={ <Mypage /> } />
           </Routes>
         </BrowserRouter>
       </div>
