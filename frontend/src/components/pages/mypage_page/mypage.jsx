@@ -9,7 +9,7 @@ const Mypage = (props) => {
             <h2>마이페이지</h2>
             <div className={styles.button_list}>
                 <Button content={'로그아웃'} />
-                <Button content={'일기 기록'} />
+                {/* <Button content={'일기 기록'} /> */}
                 <Button content={'피드백 보내기'} />
             </div>
         </div>
