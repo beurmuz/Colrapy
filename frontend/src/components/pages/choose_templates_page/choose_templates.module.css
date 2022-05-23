@@ -1,0 +1,21 @@
+@value basic_padding from '../../../common/set.css';
+
+.templates_list {
+    margin: 0;
+    padding: 0;
+}
+
+.templates_item {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    list-style: none;
+    margin: 0;
+    padding: calc(basic_padding/2);
+}
+
+.templates_image {
+    padding: basic_padding;
+    width: 80%;
+}
+

@@ -5,8 +5,8 @@ const Button = (props) => {
     function find_color(domain_name) {
         domain_name = props.domain_name;
         if(domain_name) {
-            if(domain_name === 'google') {
-                return <button className={styles.google}> {props.content} </button>; 
+            if(domain_name === 'kakao') {
+                return <button className={styles.kakao}> {props.content} </button>; 
             } else if(domain_name === 'naver') {
                 return <button className={styles.naver}> {props.content} </button>;
             }

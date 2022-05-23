@@ -23,7 +23,7 @@ const Diary = (props) => {
                         <li className={styles.act_choice_item}>산책</li>
                         <li className={styles.act_choice_item}>청소</li>
                         <li className={styles.act_choice_item}>목욕</li>
-                        <li className={styles.act_choice_item}>+</li>
+                        {/* <li className={styles.act_choice_item}>+</li> */}
                     </ul>
                 </div>
             </div>
