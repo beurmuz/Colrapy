@@ -9,7 +9,8 @@ import Diary from './components/pages/diary_page/diary';
 import Poll from './components/pages/poll_page/poll';
 import Mypage from './components/pages/mypage_page/mypage';
 import Result from './components/pages/result_page/result';
-import ChooseTemplates from './components/pages/choose_templates_page/choose_templates';
+import ChooseTemplates from './components/pages/templates_page/templates';
+import Paint from './components/pages/paint_page/paint';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
             <Route path='/canvas/poll' element={ <Poll /> } />
             <Route path='/user/mypage' element={ <Mypage /> } />
             <Route path='/diary/result' element={ <Result /> } />
-            <Route path='/diary/choose_templates' element={ <ChooseTemplates /> } />
+            <Route path='/canvas/templates' element={ <ChooseTemplates /> } />
+            <Route path='/canvas/paint' element={ <Paint /> } />
           </Routes>
         </BrowserRouter>
       </div>

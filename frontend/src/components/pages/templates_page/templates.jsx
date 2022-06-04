@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './choose_templates.module.css';
+import styles from './templates.module.css';
 import Button from '../../button';
 
 const ChooseTemplates = (props) => {
