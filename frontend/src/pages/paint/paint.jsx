@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './paint.module.css';
-import Button from '../../button';
+import Button from '../../components/button';
 import { HexColorPicker, HexColorInput } from "react-colorful";
 import { useState } from 'react';
 

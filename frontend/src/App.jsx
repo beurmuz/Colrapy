@@ -1,16 +1,15 @@
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import styles from './app.module.css';
 import Header from './components/header';
-import Main from './components/pages/main_page/main';
-import Login from './components/pages/login_page/login';
-import Join from './components/pages/join_page/join';
-// import Findpw from './components/pages/findpw_page/findpw';
-import Diary from './components/pages/diary_page/diary';
-import Poll from './components/pages/poll_page/poll';
-import Mypage from './components/pages/mypage_page/mypage';
-import Result from './components/pages/result_page/result';
-import ChooseTemplates from './components/pages/templates_page/templates';
-import Paint from './components/pages/paint_page/paint';
+import Main from './pages/main/main';
+import Login from './pages/login/login';
+import Join from './pages/join/join';
+import Diary from './pages/diary/diary';
+import Poll from './pages/poll/poll';
+import Mypage from './pages/mypage/mypage';
+import Result from './pages/result/result';
+import ChooseTemplates from './pages/templates/templates';
+import Paint from './pages/paint/paint';
 
 function App() {
   return (

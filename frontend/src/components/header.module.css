@@ -22,7 +22,12 @@ a:active, a:link, a:visited {
 }
 
 
-.user_icon_img {
-    width: 2.5rem;
+.user_icon {
+    font-size: 2rem;
     margin: auto 0;
+    color: color_main;
+}
+
+.user_icon:hover {
+    cursor: pointer;
 }

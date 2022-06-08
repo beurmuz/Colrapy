@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './templates.module.css';
-import Button from '../../button';
+import Button from '../../components/button';
 
 const ChooseTemplates = (props) => {
     return (
