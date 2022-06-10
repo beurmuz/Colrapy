@@ -1,5 +1,9 @@
 @value basic_padding from '../../common/set.css';
 
+.choose_box {
+    padding: basic_padding;
+}
+
 .templates_list {
     margin: 0;
     padding: 0;

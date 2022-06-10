@@ -3,7 +3,7 @@ import Button from '../../components/button';
 import styles from './result.module.css';
 
 const Result = (props) => {
-    const username = '사용자';
+    const { username } = props;
     const recommand_status = ['오늘은 에너지가 필요한 날이예요 !'];
     const analysis_day = ['우울하고 슬픈'];
 
@@ -33,7 +33,7 @@ const Result = (props) => {
                     </div>
                 </ul>
             </div>
-            <Button content={'컬러링하러 가기'} />
+            <Button content={'컬러링하러 가기'} pageUrl={'/canvas/templates'}/>
         </div>
     )
 }

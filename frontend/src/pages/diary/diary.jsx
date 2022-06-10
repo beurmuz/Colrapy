@@ -34,7 +34,7 @@ const Diary = (props) => {
                     <input className={styles.write_content} type='text'></input>
                 </form>
             </div>
-            <Button content={'기록하기'}></Button>
+            <Button content={'기록하기'} pageUrl={'/diary/result'}></Button>
         </div>
     );
 }

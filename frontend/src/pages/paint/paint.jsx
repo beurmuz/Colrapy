@@ -9,7 +9,7 @@ const Paint = (props) => {
     console.log(setColor);
 
     return (
-        <>
+        <div className={styles.paint_box}>
             <h3>색칠하기</h3>
             <div className="controls">
                 <div className="controls__range">
@@ -25,7 +25,7 @@ const Paint = (props) => {
                 </div>
             </div>
             <canvas id="jsCanvas" className="canvas"></canvas>
-        </>
+        </div>
     )
 }
 
