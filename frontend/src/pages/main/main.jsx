@@ -2,14 +2,14 @@ import React from 'react';
 import styles from './main.module.css';
 import Button from '../../components/button';
 
-const Main = (props) => {
+const Main = ({username}) => {
 
     return( 
         <div className={styles.main_box}>
             <div className={styles.intro_content}>
-                <h2>오늘 당신의 기분은 어떤가요? <br/>회원가입하고 컬라피에서 나의 심리상태를 알아보세요!</h2>
+                <h2>{username}님, 어서오세요! 🤗 <br/>오늘 하루는 어땠나요? <br/> 일기를 작성하고 현재 심리상태를 분석해보세요! </h2>
             </div>
-            <Button content={'3초만에 회원가입하기'} pageUrl={'/user/login'}/>
+            <Button content={'일기 작성하기'} pageUrl={'/diary'}/>
         </div>
     );
 }

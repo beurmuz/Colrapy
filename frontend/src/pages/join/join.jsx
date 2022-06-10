@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import styles from './join.module.css';
 import Button from '../../components/button';
-import Input from '../../components/input'
+import InputLabel from '../../components/auth/inputLabel';
 
 const Join = (props) => {
-    const [email, set_email] = useState('');
-    const [username, set_username] = useState('');
-    const [password, set_password] = useState('');
-    const [password_check, set_password_check] = useState('');
-    const [password_error, set_password_error] = useState('');
-    const [age, set_age] = useState('');
+    // const [email, set_email] = useState('');
+    // const [username, set_username] = useState('');
+    // const [password, set_password] = useState('');
+    // const [password_check, set_password_check] = useState('');
+    // const [password_error, set_password_error] = useState('');
+    // const [age, set_age] = useState('');
 
     const info_box1_content = `
     < colrapy >('www.colrapy.com'이하 'colrapy')은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
@@ -78,52 +78,18 @@ const Join = (props) => {
     return (
         <div className={styles.join_form}>
             <h2 className={styles.page_title}>회원가입</h2>
-            <Input />
+            {/* <Input /> */}
             <form>
-                <div className={styles.email_box}>
-                    <label htmlFor="user_email">이메일</label> <p />
-                    <input name='user_email' value={email} required />
-                </div>
-
-                <div className={styles.username_box}>
-                    <label htmlFor="user_username">이름 및 닉네임</label> <p />
-                    <input name='user_username' value={username} required />
-                </div>
-
-                <div className={styles.password_box}>
-                    <label htmlFor="user_password">비밀번호</label> <p />
-                    <input name='user_password' value={password} required />
-                </div>
-
-                <div className={styles.password_check_box}>
-                {/* <label htmlFor="user_password_check">비밀번호체크</label><br/> <p /> */}
-                    <input name="user-password-user_password_check" type="password" value={password_check} required />
-                    {password_error && <div>비밀번호가 일치하지 않습니다.</div>}
-                </div>
-    
-                <div className={styles.age_box}>
-                    <label htmlFor="user_age">나이</label> <p />
-                    <input name='user_age' value={age} required />
-                </div>
-
-                <div className={styles.info_box1}>
-                    <label htmlFor="check_box1">개인정보처리방침</label> <p />
+                <InputLabel label='이메일' name='email' placeholder='이메일을 입력하세요.' />
+                <InputLabel label='이름 및 닉네임' name='username' placeholder='이름 및 닉네임을 입력하세요.' />
+                <InputLabel label='비밀번호' name='password' placeholder='비밀번호를 입력하세요.' type='password' />
+                <InputLabel label='비밀번호 확인' name='password_check' placeholder='비밀번호를 한번 더 입력하세요.' />
+                <InputLabel label='나이' name='age' placeholder='나이를 입력하세요.' />
+                {/* <InputLabel label='개인정보처리방침' name='personal_check1' type='checkbox' />
                     <div className={styles.info_content}>{info_box1_content}</div>
-                    <div className={styles.check_box1}>
-                        <div className={styles.info}>(필수) 개인정보처리 방침에 동의합니다.</div>
-                        <input type='checkbox' className={styles.check_button}></input>
-                    </div>
-                </div>
-
-                <div className={styles.info_box2}>
-                    <label htmlFor="check_box2">이용약관</label> <p />
-                    <div className={styles.info_content}>{info_box1_content}</div>
-                    <div className={styles.check_box2}>
-                        <div className={styles.info}>(필수) 이용약관에 동의합니다. </div>
-                        <input type='checkbox' className={styles.check_button}></input>
-                    </div>
-                </div>
-                <Button content={'회원가입하기'} pageUrl={'/'}/>
+                <InputLabel label='이용약관' name='personal_check2' type='checkbox' />
+                    <div className={styles.info_content}>{info_box1_content}</div> */}
+                <Button content={'회원가입하기'} pageUrl={'/main'}/>
             </form>
         </div>
     );

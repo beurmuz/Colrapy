@@ -1,2 +1,5 @@
 @value basic_padding from '../../common/set.css';
 
+.paint_box {
+    padding: basic_padding;
+}

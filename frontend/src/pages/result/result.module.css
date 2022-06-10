@@ -1,7 +1,9 @@
 @value basic_padding from '../../common/set.css';
 @value color_white, color_gray, color_main, color_main_soft from '../../common/colors.css';
 
-
+.result_box {
+    padding: basic_padding;
+}
 
 .template_image {
     padding: basic_padding;
