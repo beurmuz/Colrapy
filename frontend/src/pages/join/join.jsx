@@ -89,7 +89,7 @@ const Join = (props) => {
                     <div className={styles.info_content}>{info_box1_content}</div>
                 <InputLabel label='이용약관' name='personal_check2' type='checkbox' />
                     <div className={styles.info_content}>{info_box1_content}</div> */}
-                <Button content={'회원가입하기'} pageUrl={'/main'}/>
+                <Button content={'회원가입하기'} pageUrl={'/main'} type='submit'/>
             </form>
         </div>
     );

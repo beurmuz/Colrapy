@@ -2,7 +2,15 @@ import React from 'react';
 import styles from './templates.module.css';
 import Button from '../../components/button';
 
-const ChooseTemplates = (props) => {
+const ChooseTemplates = ({all_templates}) => {
+    const template_list = [{...all_templates}];
+    
+    function resetTemplates (template_list) {
+        let index = Math.random(0, template_list.length)*10;
+        // let reset_template_item = template_list
+        return 
+    }
+
     return (
         <div className={styles.choose_box}>
             <h3 className={styles.page_title}>컬라피가 추천하는 템플릿들</h3>
@@ -21,7 +29,7 @@ const ChooseTemplates = (props) => {
                     </li>
                 </ul>
             </div>
-            <Button content={'새로고침'} />
+            <Button content={'선택 완료'} pageUrl={'/canvas/paint'}/>
         </div>
     )
 }
