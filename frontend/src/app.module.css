@@ -66,6 +66,10 @@ button:hover {
     min-height: 90vh;
 }
 
+p {
+    line-height: 150%;
+}
+
 
 @media screen and (max-width: response_width) {
     .header {

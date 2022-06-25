@@ -28,11 +28,11 @@ function App() {
             <Route path='/user/join' element={ <Join /> } />
             {/* <Route path='/user/findpw' element={ <Findpw /> } /> */}
             <Route path='/diary' element={ <Diary /> } />
-            <Route path='/canvas/poll' element={ <Poll username={'사용자'} /> } />
             <Route path='/user/mypage' element={ <Mypage /> } />
-            <Route path='/diary/result' element={ <Result /> } username={'user'} />
+            <Route path='/diary/result' element={ <Result /> } username={'사용자'} />
             <Route path='/canvas/templates' element={ <ChooseTemplates /> } />
             <Route path='/canvas/paint' element={ <Paint /> } />
+            <Route path='/canvas/poll' element={ <Poll username={'사용자'} /> } />
           </Routes>
         </BrowserRouter>
       </div>

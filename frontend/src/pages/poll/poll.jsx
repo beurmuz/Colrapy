@@ -12,6 +12,8 @@ const Poll = ({username}) => {
                 <button className={styles.poll_button}>네! 개선되었어요 🙆🏻</button>
                 <button className={styles.poll_button}>잘 모르겠어요 🤷🏻‍♂️</button>
             </div>
+            <Button content={'더 할래요! 템플릿 선택하러가기'} pageUrl={'/canvas/templates'}/>
+            <Button content={'메인페이지로 가기'} pageUrl={'/main'} />
         </div>
     );
 }
