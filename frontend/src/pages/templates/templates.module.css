@@ -11,11 +11,36 @@
 
 .templates_item {
     display: flex;
-    flex-direction: row;
-    justify-content:space-around;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: calc(basic_padding/2);
+}
+
+.choice_wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.template_check {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: basic_padding;
+}
+
+.template_color {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 10rem;
+    margin-right: calc(basic_padding/2);
+}
+
+span {
+    font-size: 20px;
 }
 
 .templates_image {

@@ -30,7 +30,7 @@ const Paint = (props) => {
                 </div>
                 <div className={styles.control_element}>
                     <FontAwesomeIcon className={styles.icon_color} icon={faPalette} />
-                </div>
+                </div>  
                 <div className={styles.control_element}>
                     <FontAwesomeIcon className={styles.icon_save} icon={faCloudArrowDown} />    
                 </div>
