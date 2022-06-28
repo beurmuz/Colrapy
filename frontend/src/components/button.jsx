@@ -2,10 +2,15 @@ import React from 'react';
 import styles from './button.module.css'
 
 const Button = (props) => {
-    const { domain_name, content, pageUrl } = props;
-    function handleGoPage (event) {
-        if(pageUrl) window.location.href = pageUrl;
+    const { domain_name, content, pageUrl, handle_function } = props;
+
+    if(handle_function) {
+        // console.log(handle_function);
     }
+    // 
+    // function handleGoPage (event) {
+    //     if(pageUrl) window.location.href = pageUrl;
+    // }
 
     function find_color(domain_name) {
         if(domain_name) {
@@ -20,7 +25,11 @@ const Button = (props) => {
     }
 
     return (
-        <div className={styles.button_box} onClick={handleGoPage}>
+        // <div className={styles.button_box} onClick={handleGoPage} onChange={handle_function}>
+        //     {find_color(domain_name)}
+        // </div>
+
+        <div className={styles.button_box} onClick={handle_function}>
             {find_color(domain_name)}
         </div>
     )

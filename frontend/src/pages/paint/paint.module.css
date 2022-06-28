@@ -18,6 +18,12 @@
 .control_element {
     padding: basic_padding;
     cursor: pointer;
+    transition: transform 100ms ease-in;
+}
+
+.control_element:hover {
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 .paint_img {

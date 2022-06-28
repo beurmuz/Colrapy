@@ -3,9 +3,15 @@ import Button from '../../components/button';
 import styles from './result.module.css';
 
 const Result = (props) => {
-    const { username } = props;
+    const { username, recommand_colors } = props;
     const recommand_status = ['오늘은 에너지가 필요한 날이예요 !'];
     const analysis_day = ['우울하고 슬픈'];
+    const color_list = recommand_colors.map((color, index) =>
+        <div className={styles.color_item} >
+            <li key={index} className={styles.color_color} style={{backgroundColor: color.code}}></li>
+            <p className={styles.color_define}>{color.effet}</p>
+        </div>
+    );
 
     return (
         <div className={styles.result_box}>
@@ -19,7 +25,8 @@ const Result = (props) => {
                 <h3>컬라피가 추천하는 색</h3>
                 <p>컬러링을 할 때 사용하면 좋은 3가지 색을 추천해드릴게요 😋</p>
                 <ul className={styles.color_list}>
-                    <div className={styles.color_item}>
+                    {color_list}
+                    {/* <div className={styles.color_item}>
                         <li className={styles.color_color}></li>
                         <p className={styles.color_define}>해당 색상에 대해 설명해볼까요?</p>
                     </div>
@@ -30,7 +37,7 @@ const Result = (props) => {
                     <div className={styles.color_item}>
                         <li className={styles.color_color}></li>
                         <p className={styles.color_define}>해당 색상에 대해 설명해볼까요?</p>
-                    </div>
+                    </div> */}
                 </ul>
             </div>
             <Button content={'컬러링하러 가기'} pageUrl={'/canvas/templates'}/>

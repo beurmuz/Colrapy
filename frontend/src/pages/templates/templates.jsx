@@ -2,14 +2,22 @@ import React from 'react';
 import styles from './templates.module.css';
 import Button from '../../components/button';
 
-const ChooseTemplates = ({all_templates}) => {
-    const template_list = [{...all_templates}];
-    
-    function resetTemplates (template_list) {
-        let index = Math.random(0, template_list.length)*10;
-        // let reset_template_item = template_list
-        return 
-    }
+const ChooseTemplates = (props) => {
+    const { recommand_colors } = props;
+
+    const template_list = recommand_colors.map((color, index) => 
+        <div>
+            <div className={styles.choice_wrap}>
+                <input type='checkbox' className={styles.template_check}/>
+                <div style={{backgroundColor: color.code}} className={styles.template_color}></div>
+                <span className={styles.template_colorname}>{color.color}</span>
+            </div>
+            
+            <li key={index} className={styles.templates_item}>
+                <img className={styles.templates_image} src={color.imageUrl} alt='templates' />
+            </li>
+        </div>
+    );
 
     return (
         <div className={styles.choose_box}>
@@ -17,16 +25,8 @@ const ChooseTemplates = ({all_templates}) => {
             <p>아래의 템플릿 중 하나를 골라보세요!</p>
             <div className={styles.templates_box}>
                 <ul className={styles.templates_list}>
-                    <li className={styles.templates_item}>
-                        <img className={styles.templates_image} src="/images/template_image/pattern.png" />
-                    </li>
-                    <li className={styles.templates_item}>
-                        <img className={styles.templates_image} src="/images/template_image/pattern.png" />
-                    </li>
-                    <li className={styles.templates_item}>
-                        <img className={styles.templates_image} src="/images/template_image/pattern.png" />
+                    {template_list}
 
-                    </li>
                 </ul>
             </div>
             <Button content={'선택 완료'} pageUrl={'/canvas/paint'}/>

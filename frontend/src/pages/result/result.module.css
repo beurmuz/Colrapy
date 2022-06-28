@@ -27,8 +27,14 @@
 }
 
 .color_color {
-    width: 3.8rem;
-    height: 3.8rem;
+    width: 70px;
+    height: 70px;
     border: 1px solid color_gray;
     border-radius: 10rem;
+    margin: calc(basic_padding/2);
+}
+
+.color_define {
+    width: 70%;
+    margin: auto;
 }
