@@ -24,10 +24,10 @@ const Diary = (props) => {
     }
 
     // button 클릭시 submit 하는 함수
-    const handleSubmit = () => {
-        console.log(state)
-        alert('일기 작성완료!');
-    }
+    // const handleSubmit = () => {
+    //     console.log(state)
+    //     alert('일기 작성완료!');
+    // }
     
     return(
         <div className={styles.diary_box}>
@@ -54,7 +54,7 @@ const Diary = (props) => {
             <Button 
                 content={'기록하기'} 
                 pageUrl={'/diary/result'} 
-                handle_function={handleSubmit}
+                // handle_function={handleSubmit}
             />
         </div>
     );
