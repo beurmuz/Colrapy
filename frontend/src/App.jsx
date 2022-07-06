@@ -12,6 +12,7 @@ import Mypage from './pages/mypage/mypage';
 import Result from './pages/result/result';
 import ChooseTemplates from './pages/templates/templates';
 import Paint from './pages/paint/paint';
+import Canvas from './pages/canvas/canvas';
 
 function App() {
   const recommand_colors = [
@@ -53,6 +54,7 @@ function App() {
             <Route path='/canvas/templates' element={ <ChooseTemplates recommand_colors={recommand_colors}/> } />
             <Route path='/canvas/paint' element={ <Paint recommand_colors={recommand_colors}/> } />
             <Route path='/canvas/poll' element={ <Poll username={'사용자'} /> } />
+            <Route path='/canvas' element={ <Canvas /> } />
           </Routes>
         </BrowserRouter>
       </div>

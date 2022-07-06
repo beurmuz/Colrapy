@@ -26,18 +26,6 @@ const Result = (props) => {
                 <p>컬러링을 할 때 사용하면 좋은 3가지 색을 추천해드릴게요 😋</p>
                 <ul className={styles.color_list}>
                     {color_list}
-                    {/* <div className={styles.color_item}>
-                        <li className={styles.color_color}></li>
-                        <p className={styles.color_define}>해당 색상에 대해 설명해볼까요?</p>
-                    </div>
-                    <div className={styles.color_item}>
-                        <li className={styles.color_color}></li>
-                        <p className={styles.color_define}>해당 색상에 대해 설명해볼까요?</p>
-                    </div>
-                    <div className={styles.color_item}>
-                        <li className={styles.color_color}></li>
-                        <p className={styles.color_define}>해당 색상에 대해 설명해볼까요?</p>
-                    </div> */}
                 </ul>
             </div>
             <Button content={'컬러링하러 가기'} pageUrl={'/canvas/templates'}/>
