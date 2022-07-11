@@ -15,6 +15,11 @@ import Paint from './pages/paint/paint';
 import Canvas from './pages/canvas/canvas';
 
 function App() {
+  const user_info = {
+    email: 'testuser1@naver.com',
+    password: 'hgm0801'
+  }
+
   const recommand_colors = [
     { 
       color: '연두색', 
@@ -45,11 +50,11 @@ function App() {
           <Routes>
             <Route exact path='/' element={ <Home /> } />
             <Route path='/main' element={ <Main username={'사용자'}/> } />
-            <Route path='/user/login' element={ <Login /> } />
-            <Route path='/user/join' element={ <Join /> } />
+            <Route path='/users/login' element={ <Login user_info={user_info} /> } />
+            <Route path='/users/join' element={ <Join /> } />
             {/* <Route path='/user/findpw' element={ <Findpw /> } /> */}
             <Route path='/diary' element={ <Diary /> } />
-            <Route path='/user/mypage' element={ <Mypage /> } />
+            <Route path='/users/mypage' element={ <Mypage /> } />
             <Route path='/diary/result' element={ <Result username={'사용자'} recommand_colors={recommand_colors}/> } />
             <Route path='/canvas/templates' element={ <ChooseTemplates recommand_colors={recommand_colors}/> } />
             <Route path='/canvas/paint' element={ <Paint recommand_colors={recommand_colors}/> } />

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import InputLabel from '../../components/auth/inputLabel';
 
 const Login = (props) => {
+    const user_info = props;
+    console.log(user_info);
     return (
         <div className={styles.info_box}>
             <div className={styles.login_box}>
