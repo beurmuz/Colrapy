@@ -7,6 +7,8 @@ import Button from '../../components/button';
 import { useState, useRef, useEffect } from 'react';
 import { useCallback } from 'react';
 import Canvas from '../canvas/canvas';
+import { ReactSketchCanvas } from 'react-sketch-canvas';
+
 
 const Paint = (props) => {
     const { recommand_colors } = props;
@@ -15,9 +17,33 @@ const Paint = (props) => {
     );
     const [showPalette, setshowPalette] = useState(false); // 아코디언 메뉴 표시 state
     const [showBrush, setShowBrush] = useState(false); // 브러쉬 사이즈 state
-    const [color, setColor] = useState('000000'); // 색상 변경 state
+    const [color, setColor] = useState('#000000'); // 색상 변경 state
     const [brushSize, setBrushSize] = useState(1); // 브러쉬 사이즈 
     const canvas_ref = useRef(null); // 컨버스의 DOM값 가져오기
+
+    // 뒤로가기
+    const canvasRef = React.createRef();
+    const undoHandler = () => {
+        const undo = canvasRef.current.undo;
+    
+        if (undo) {
+            undo();
+        }
+    };
+
+    // 이미지 내보내기
+    const exportImageHandler = (resolve, reject) => {
+        try{
+            const canvas = canvasRef.current;
+            if(!canvas) throw Error('Canvas not rendered yet');
+            // const {sageCanvas, width, height} = getCanvasWithViewBox(canvas);
+
+            const canvasSketch = `data:image/svg+xml;base64`;
+            console.log(canvasSketch);
+        } catch (error) {
+            console.log("error");
+        }
+    }
 
     // 마우스가 눌렸을때만 커서의 움직임 그리기
     // 마우스가 클릭되었는지 안되었는지를 저장하는 state 생성
@@ -33,6 +59,8 @@ const Paint = (props) => {
         const canvas = canvas_ref.current;
 
         return {
+            // x: e.clientX - e.target.offsetLeft,
+            // y: e.clientY - e.target.offsetTop
             x: e.pageX - canvas.offsetLeft,
             y: e.pageY - canvas.offsetTop
         };
@@ -107,13 +135,14 @@ const Paint = (props) => {
     }, [startPaint, paint, exitPaint]);
     
     const nowColor = { color: color };
-    const import_background = { backgroundImage: "url('/images/template_image/blue_easy.jpg')" };
+    // const import_background = { backgroundImage: "url('/images/template_image/blue_easy.jpg')" };
+    const import_background = '/images/template_image/blue_easy.jpg';
 
     return (
         <div className={styles.paint_box}>
             <div className={styles.controlbar_box}>
                 <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_undo} icon={faArrowRotateLeft} />
+                    <FontAwesomeIcon className={styles.icon_undo} icon={faArrowRotateLeft} onClick={() => undoHandler()}/>
                 </div>
                 <div className={styles.control_element}>
                     <FontAwesomeIcon className={styles.icon_fill} icon={faFillDrip} />
@@ -126,17 +155,17 @@ const Paint = (props) => {
                     <FontAwesomeIcon className={styles.icon_color} icon={faPalette} style={nowColor}  onClick={() => setshowPalette(!showPalette)}/>
                 </div>  
                 <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_save} icon={faCloudArrowDown} />    
+                    <FontAwesomeIcon className={styles.icon_save} icon={faCloudArrowDown} onClick={() => exportImageHandler()}/>    
                 </div>
             </div>
             { showBrush ? <div className={styles.controlbar_accordion}>
                             <div className={styles.brush_box}>
                                 <ol className={styles.brush_list}>
-                                    <li className={styles.brush_size} onClick={() => setBrushSize(1)}>1</li>
-                                    <li className={styles.brush_size} onClick={() => setBrushSize(2)}>2</li>
-                                    <li className={styles.brush_size} onClick={() => setBrushSize(3)}>3</li>
-                                    <li className={styles.brush_size} onClick={() => setBrushSize(4)}>4</li>
-                                    <li className={styles.brush_size} onClick={() => setBrushSize(5)}>5</li>
+                                    <div className={styles.brush_size} onClick={() => setBrushSize(1)}>1</div>
+                                    <div className={styles.brush_size} onClick={() => setBrushSize(5)}>2</div>
+                                    <div className={styles.brush_size} onClick={() => setBrushSize(10)}>3</div>
+                                    <div className={styles.brush_size} onClick={() => setBrushSize(15)}>4</div>
+                                    <div className={styles.brush_size} onClick={() => setBrushSize(20)}>5</div>
                                 </ol>
                             </div>
                         </div>
@@ -151,13 +180,29 @@ const Paint = (props) => {
                             </div> 
                             : ''}
             <div className={styles.canvas_container}>
-                <canvas 
+                <ReactSketchCanvas 
+                    ref={canvasRef}
+                    height='25rem'
+                    strokeWidth={brushSize}
+                    strokeColor={color}
+                    backgroundImage={import_background}
+                    exportWithBackgroundImage={true}
+                />
+                {/* <ReactSketchCanvas
+                    ref={canvasRef}
+                    onChange={onChange}
+                    onStroke={(stroke, isEraser) =>
+                    setLastStroke({ stroke, isEraser })
+                    }
+                    {...canvasProps}
+                /> */}
+                {/* <canvas 
                     ref={canvas_ref}
                     className={styles.paint_img} 
                     style={import_background} 
                     onMouseDown={(e) => setIsPainting(true)}
                     onMouseUp={(e) => setIsPainting(false)}
-                />
+                /> */}
                 {/* <Canvas /> */}
             </div>
             <Button 
