@@ -40,6 +40,11 @@
     background-color: color_main_soft;
 }
 
+.write_activity {
+    border: 1px solid color_main;
+    border-radius: 0.3rem;
+}
+
 .write_box {
     padding-top: calc(basic_padding*2);
 }

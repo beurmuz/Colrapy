@@ -44,7 +44,8 @@ button {
     -moz-appearance: none;
     appearance: none;
     border: 1px solid;
-    border-radius: 0.3rem;
+    /* border-radius: 0.3rem; */
+    border-radius: 5rem;
     color: color_white;
     font-size: 1.3rem;
     font-weight: 400;

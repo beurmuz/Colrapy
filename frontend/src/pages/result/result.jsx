@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../components/button';
 import styles from './result.module.css';
+import {Link} from 'react-router-dom';
 
 const Result = (props) => {
     const { username, recommand_colors } = props;
@@ -28,7 +29,9 @@ const Result = (props) => {
                     {color_list}
                 </ul>
             </div>
-            <Button content={'컬러링하러 가기'} pageUrl={'/canvas/templates'}/>
+            <Link to={'/canvas/templates'}>
+                <Button content={'컬러링하러 가기'} />
+            </Link>
         </div>
     )
 }

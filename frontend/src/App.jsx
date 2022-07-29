@@ -8,11 +8,11 @@ import Login from './pages/login/login';
 import Join from './pages/join/join';
 import Diary from './pages/diary/diary';
 import Poll from './pages/poll/poll';
-import Mypage from './pages/mypage/mypage';
 import Result from './pages/result/result';
 import ChooseTemplates from './pages/templates/templates';
 import Paint from './pages/paint/paint';
 import Canvas from './pages/canvas/canvas';
+import Profile from './pages/profile/profile';
 
 function App() {
   const user_info = {
@@ -42,27 +42,27 @@ function App() {
   ];
   return (
     <div className={styles.app}>
-      <div className={styles.header}>
-        <Header />
-      </div>
-      <div className={styles.content}>
         <BrowserRouter>
-          <Routes>
-            <Route exact path='/' element={ <Home /> } />
-            <Route path='/main' element={ <Main username={'사용자'}/> } />
-            <Route path='/users/login' element={ <Login user_info={user_info} /> } />
-            <Route path='/users/join' element={ <Join /> } />
-            {/* <Route path='/user/findpw' element={ <Findpw /> } /> */}
-            <Route path='/diary' element={ <Diary /> } />
-            <Route path='/users/mypage' element={ <Mypage /> } />
-            <Route path='/diary/result' element={ <Result username={'사용자'} recommand_colors={recommand_colors}/> } />
-            <Route path='/canvas/templates' element={ <ChooseTemplates recommand_colors={recommand_colors}/> } />
-            <Route path='/canvas/paint' element={ <Paint recommand_colors={recommand_colors}/> } />
-            <Route path='/canvas/poll' element={ <Poll username={'사용자'} /> } />
-            <Route path='/canvas' element={ <Canvas /> } />
-          </Routes>
+          <div className={styles.header}>
+            <Header />
+          </div>
+          <div className={styles.content}>
+            <Routes>
+              <Route exact path='/' element={ <Home /> } />
+              <Route path='/main' element={ <Main username={'사용자'}/> } />
+              <Route path='/users/login' element={ <Login user_info={user_info} /> } />
+              {/* <Route path='/users/join' element={ <Join /> } /> */}
+              {/* <Route path='/user/findpw' element={ <Findpw /> } /> */}
+              <Route path='/diary' element={ <Diary /> } />
+              <Route path='/profile' element={ <Profile /> } />
+              <Route path='/diary/result' element={ <Result username={'사용자'} recommand_colors={recommand_colors}/> } />
+              <Route path='/canvas/templates' element={ <ChooseTemplates recommand_colors={recommand_colors}/> } />
+              <Route path='/canvas/paint' element={ <Paint recommand_colors={recommand_colors}/> } />
+              <Route path='/canvas/poll' element={ <Poll username={'사용자'} /> } />
+              <Route path='/canvas' element={ <Canvas /> } />
+            </Routes>
+          </div>
         </BrowserRouter>
-      </div>
     </div>
   );
 }

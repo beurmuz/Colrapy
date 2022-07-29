@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    white-space: pre-line;
 }
 
 p {
@@ -25,3 +26,18 @@ p {
         font-size: 1.6rem;
     }
 }
+
+
+@keyframes blink {
+    from{
+        opacity: 0%;
+     }
+     to{
+         opacity: 100%;
+      }
+ }
+ 
+ .display_content::after{
+    content: "|";
+    animation: blink 1s infinite;
+ }

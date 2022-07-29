@@ -2,23 +2,23 @@ import React from 'react';
 import styles from './header.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
-    function handleGoPage (event) {
-        window.location.href = '/user/mypage';
-    }
+
     return (
         <nav className={styles.header}>
+            <Link to={'/'}>
             <h1 className={styles.title}>
-                <a href='/'>
-                    Colrapy
-                </a>
+                Colrapy
             </h1>
-            <FontAwesomeIcon 
-                className={styles.user_icon}
-                icon={faCircleUser} 
-                onClick={handleGoPage} >
-            </FontAwesomeIcon>
+            </Link>
+            <Link to={'/profile'}>
+                <FontAwesomeIcon 
+                    className={styles.user_icon}
+                    icon={faCircleUser}>
+                </FontAwesomeIcon>
+            </Link>
         </nav>
     )
 }
