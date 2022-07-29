@@ -8,6 +8,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useCallback } from 'react';
 import Canvas from '../canvas/canvas';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
+import { Link } from 'react-router-dom';
 
 
 const Paint = (props) => {
@@ -168,7 +169,7 @@ const Paint = (props) => {
                                     <div className={styles.brush_size} onClick={() => setBrushSize(20)}>5</div>
                                 </ol>
                             </div>
-                        </div>
+                          </div>
                         : ''}
             { showPalette ? <div className={styles.controlbar_accordion}>
                                 <div className={styles.recommand_box}>
@@ -205,10 +206,11 @@ const Paint = (props) => {
                 /> */}
                 {/* <Canvas /> */}
             </div>
-            <Button 
-                content={'완성했어요!'} 
-                pageUrl={'/canvas/poll'} 
-            />
+            <Link to={'/canvas/poll'}>
+                <Button 
+                    content={'완성했어요!'} 
+                />
+            </Link>
         </div>
     )
 }

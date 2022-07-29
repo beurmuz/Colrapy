@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './templates.module.css';
 import Button from '../../components/button';
+import { Link } from 'react-router-dom';
 
 const ChooseTemplates = (props) => {
     const { recommand_colors } = props;
@@ -29,7 +30,9 @@ const ChooseTemplates = (props) => {
 
                 </ul>
             </div>
-            <Button content={'선택 완료'} pageUrl={'/canvas/paint'}/>
+            <Link to={'/canvas/paint'}>
+                <Button content={'선택 완료'}/>
+            </Link>
         </div>
     )
 }
