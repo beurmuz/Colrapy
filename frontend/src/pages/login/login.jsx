@@ -20,11 +20,12 @@ const Login = (props) => {
     const login = () => {
       //입력 값 정합성 체크 후 login API 요청
           if (id === "" || password === "") {
-            window.alert("아이디와 비밀번호를 입력해주세요. 🤒");
-            return;
+            alert("아이디와 비밀번호를 입력해주세요. 🤒");
+            return false;
           }
           if (!emailCheck(id)) {
-            window.alert("이메일 형식이 맞지 않습니다.");
+            alert("이메일 형식이 맞지 않습니다.");
+            return false;
           }
           // dispatch(userActions.loginDB(id, password));
     };
