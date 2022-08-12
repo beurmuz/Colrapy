@@ -6,22 +6,22 @@
     "color1": {
         "color": "빨간색",
         "code": "#B92021",
-        "negative": null
+        "negative": "빨간색은 어쩌고 저쩌고.. ",
+        "b_image": "/images/template_image/b_red1.jpg",
+        "l_image": "/images/template_image/l_red1.jpg"
     },
     "color2": {
         "color": "주황색",
         "code": "#EB6F0E",
-        "negative": "주황색은 기쁨과 행복의 색으로 행복함과 쾌활함을 주고 식욕을 증진해주는 역할을 해요. 인체의 원기를 북돋아 주는 강장 작용이 가장 높은 색이기도 하답니다. 이러한 주황색은 우울할 때 접하면 좋아요."
+        "negative": "주황색은 기쁨과 행복의 색으로 행복함과 쾌활함을 주고 식욕을 증진해주는 역할을 해요. 인체의 원기를 북돋아 주는 강장 작용이 가장 높은 색이기도 하답니다. 이러한 주황색은 우울할 때 접하면 좋아요.",
+        "b_image": "/images/template_image/b_orange2.jpg",
+        "l_image": "/images/template_image/l_orange2.jpg"
     },
     "color3": {
         "color": "노란색",
         "code": "#FFD500",
-        "negative": null
-    },
-    "b_image1": "/images/template_image/b_red1.jpg",
-    "b_image2": "/images/template_image/b_orange2.jpg",
-    "b_image3": "/images/template_image/b_yellow1.jpg",
-    "l_image1": "/images/template_image/l_red2.jpg",
-    "l_image2": "/images/template_image/l_orange2.jpg",
-    "l_image3": "/images/template_image/l_yellow1.jpg"
+        "negative": "빨간색은 어쩌고 저쩌고.. ",
+        "b_image": "/images/template_image/b_yellow1.png",
+        "l_image": "/images/template_image/l_yellow1.jpg"
+    }
 }

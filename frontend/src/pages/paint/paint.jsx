@@ -11,11 +11,14 @@ import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { Link } from 'react-router-dom';
 
 
-const Paint = (props) => {
-    const { recommand_colors } = props;
-    const color_list = recommand_colors.map((color, id) =>
-        <li key={id} className={styles.color_color} style={{backgroundColor: color.code}} onClick={() => setColor(color.code)}></li>
-    );
+const Paint = ({ resultData }) => {
+    const colors = [resultData.color1, resultData.color2, resultData.color3];
+    console.log(colors)
+    const colorList = colors.map((color) => {
+        return (
+            <li key={color.code} className={styles.color_color} style={{backgroundColor: color.code}} onClick={() => setColor(color.code)}></li>
+        )
+    });
     const [showPalette, setshowPalette] = useState(false); // 아코디언 메뉴 표시 state
     const [showBrush, setShowBrush] = useState(false); // 브러쉬 사이즈 state
     const [color, setColor] = useState('#000000'); // 색상 변경 state
@@ -173,7 +176,7 @@ const Paint = (props) => {
                         : ''}
             { showPalette ? <div className={styles.controlbar_accordion}>
                                 <div className={styles.recommand_box}>
-                                    {color_list}
+                                    {colorList}
                                 </div>
                                 <div className={styles.responsive} > 
                                     <HexColorPicker color={color} onChange={setColor}/>

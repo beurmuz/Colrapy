@@ -24,13 +24,12 @@ const Diary = (props) => {
     // button 클릭시 submit 하는 함수
     const handleSubmit = () => {
         checkInput();
-        return false;
     }
 
     // input validation 체크 함수
     const checkInput = () => {
+        console.log(activity, feeling);
         if(activity === '' || feeling === '') {
-            // console.log(activity);
             alert('빈칸이 있어요! 모든 칸을 채워주세요. 😢');
             return false;
         }
