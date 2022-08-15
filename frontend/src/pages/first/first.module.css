@@ -1,0 +1,43 @@
+@value color_main from '../../common/colors.css';
+@value response_width, response_padding, basic_padding from '../../common/set.css';
+
+.main_box {
+    height: 100%;
+    color: color_main;
+    font-weight: 700;
+    line-height: 3rem;
+    padding: basic_padding;
+}
+
+.intro_content {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    white-space: pre-line;
+}
+
+p {
+    margin: 0.3rem;
+}
+
+@media screen and (max-width: response_width) {
+    p {
+        font-size: 1.6rem;
+    }
+}
+
+
+@keyframes blink {
+    from{
+        opacity: 0%;
+     }
+     to{
+         opacity: 100%;
+      }
+ }
+ 
+ .display_content::after{
+    content: "|";
+    animation: blink 1s infinite;
+ }
