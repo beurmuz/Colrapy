@@ -46,7 +46,6 @@ const Profile = (props) => {
                 <Link to={'/'}>
                     <Button content={'로그아웃'} />
                 </Link>
-                <Button content={'피드백 보내기'} />
             </div>
         </div>
     )

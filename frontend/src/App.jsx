@@ -1,8 +1,7 @@
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import styles from './app.module.css';
 import Header from './components/header';
-import Home from './pages/home/home';
-import Main from './pages/main/main';
+import First from './pages/first/first';
 import Login from './pages/login/login';
 import Diary from './pages/diary/diary';
 import Poll from './pages/poll/poll';
@@ -11,9 +10,7 @@ import ChooseTemplates from './pages/templates/templates';
 import Paint from './pages/paint/paint';
 import Canvas from './pages/canvas/canvas';
 import Profile from './pages/profile/profile';
-
-import loginData from './data/login.json';
-import resultData from './data/result.json';
+import Colrapy from './pages/colrapy/colrapy';
 
 function App() {
   return (
@@ -24,16 +21,16 @@ function App() {
           </div>
           <div className={styles.content}>
             <Routes>
-              <Route exact path='/' element={ <Home /> } />
-              <Route path='/main' element={ <Main username={'사용자'}/> } />
+              <Route exact path='/' element={ <First /> } />
               <Route path='/users/login' element={ <Login/> } />
+              <Route path='/colrapy' element={ <Colrapy/> } />
               <Route path='/diary' element={ <Diary /> } />
               <Route path='/profile' element={ <Profile /> } />
-              <Route path='/diary/result' element={ <Result username={'사용자'} resultData={resultData}/> } />
-              <Route path='/canvas/templates' element={ <ChooseTemplates resultData={resultData}/> } />
-              <Route path='/canvas/paint' element={ <Paint resultData={resultData}/> } />
-              <Route path='/canvas/poll' element={ <Poll username={'사용자'} /> } />
-              <Route path='/canvas' element={ <Canvas /> } />
+              <Route path='/diary/result' element={ <Result /> } />
+              <Route path='/canvas/templates' element={ <ChooseTemplates /> } />
+              <Route path='/canvas/painting' element={ <Paint/> } />
+              <Route path='/canvas/poll' element={ <Poll /> } />
+              {/* <Route path='/canvas' element={ <Canvas /> } /> */}
             </Routes>
           </div>
         </BrowserRouter>

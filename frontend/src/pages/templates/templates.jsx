@@ -1,21 +1,50 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './templates.module.css';
 
-const ChooseTemplates = ({resultData}) => {
-    const colors = [resultData.color1, resultData.color2, resultData.color3];
-    const templateList = colors.map((color) => {
+const ChooseTemplates = ({}) => {
+    let [bImages, setBImages] = useState({});
+    let navigate = useNavigate();
+
+    // 서버로부터 결과 받아오기
+    const getResult = async() => {
+        await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/')
+            .then((response) => {
+                setBImages(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        getResult();
+    }, []);
+
+    // img object -> img array
+    let images = [];
+    const objToImgs = Object.entries(bImages);
+    for(let [key, value] of objToImgs) {
+        images.push(value);
+    }
+
+    // 이미지 클릭 시 라우팅
+    const handleRouting = (e) => {
+        navigate('/canvas/painting');
+    }
+
+
+    // UI 생성
+    const templateList = images.map((img, index) => {
         return (
             <div>
-                <div className={styles.choice_wrap}>
-                    <div style={{backgroundColor: color.code}} className={styles.template_color}></div>
-                    <span className={styles.template_colorname}>{color.color}</span>
-                </div>
-                <li className={styles.templates_item}>
-                    <img className={styles.templates_image} src={color.b_image} alt='templates' />
-                </li>
+                <li key={img+index} className={styles.templates_item}>
+                    <img className={styles.templates_image} src={img} alt='templates' onClick={handleRouting}/>
+                 </li>
             </div>
         )
-    })
+    });
 
     return (
         <div className={styles.choose_box}>
@@ -24,7 +53,6 @@ const ChooseTemplates = ({resultData}) => {
             <div className={styles.templates_box}>
                 <ul className={styles.templates_list}>
                     {templateList}
-
                 </ul>
             </div>
         </div>
