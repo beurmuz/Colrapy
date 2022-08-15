@@ -1,20 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../../components/button';
 import styles from './result.module.css';
-import {Link} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
-const Result = ({username, resultData}) => {
-    const mention = resultData.mention.mention;
-    const colors = [resultData.color1, resultData.color2, resultData.color3];
+const Result = (props) => {
+    const navigate = useNavigate();
+    let username = '컬라피';
+    let [mention, setMention] = useState();
+    let [colors, setColors] = useState([{}]);
+    let [bImages, setBImages] = useState([{}]);
+    let [lImages, setLImages] = useState([{}]);
 
-    const recommandList = colors.map((color) => {
+    // 서버로부터 결과 받아오기
+    const getResult = async() => {
+        await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/diary/result/')
+            .then((response) => {
+                // console.log(response.data);
+                setMention(response.data.mention.mention); //ok
+                // console.log(mention.mention);
+                setColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
+                // console.log(colors[0].color);
+                setBImages([{...response.data.b_images}]);
+                // console.log(...bImages);
+                setLImages([{...response.data.l_images}]);
+                // console.log(...lImages);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        getResult();
+    }, []);
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate('/canvas/templates');
+    }
+
+    const recommandList = colors.map((color, index) => {
         return(
-            <li key={color.code} className={styles.recommand_item} >
+            <li key={color.code + index} className={styles.recommand_item} >
                 <div className={styles.recommand_wrap}>
                     <span className={styles.recommand_color} style={{backgroundColor: color.code}}></span>
-                    <p className={styles.recommand_effect}>{color.negative}</p>
+                    <p className={styles.recommand_effect}>{color.negative || color.positive}</p>
                 </div>
-                <img className={styles.template_image} src={color.b_image}/>
+                {/* <img className={styles.template_image} alt={color.color} src={color.b_image}/> */}
             </li>
         )
     }) ;
@@ -29,9 +62,7 @@ const Result = ({username, resultData}) => {
                     {recommandList}
                 </ul>
             </div>
-            <Link to={'/canvas/templates'}>
-                <Button content={'컬러링하러 가기'} />
-            </Link>
+            <Button content={'컬러링하러 가기'} _onClick={handleClick} />
         </div>
     )
 }
