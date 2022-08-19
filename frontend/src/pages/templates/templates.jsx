@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './templates.module.css';
 
-const ChooseTemplates = ({}) => {
-    let [bImages, setBImages] = useState({});
+const ChooseTemplates = () => {
+    let [baseImages, setBaseImages] = useState({});
     let navigate = useNavigate();
 
     // 서버로부터 결과 받아오기
     const getResult = async() => {
         await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/')
             .then((response) => {
-                setBImages(response.data);
+                setBaseImages(response.data.base_images);
             })
             .catch((error) => {
                 console.log(error);
@@ -24,14 +24,17 @@ const ChooseTemplates = ({}) => {
 
     // img object -> img array
     let images = [];
-    const objToImgs = Object.entries(bImages);
+    const objToImgs = Object.entries(baseImages);
     for(let [key, value] of objToImgs) {
         images.push(value);
     }
 
-    // 이미지 클릭 시 라우팅
+    // 특정 템플릿 클릭 시 라우팅과 함께 클릭한 템플릿 주소 props로 넘기기
     const handleRouting = (e) => {
-        navigate('/canvas/painting');
+        console.log(e.target.src);
+        navigate('/canvas/painting', {
+            img_src: e.target.src
+        });
     }
 
 
