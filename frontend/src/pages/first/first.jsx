@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import styles from './home.module.css';
+import styles from './first.module.css';
 import Button from '../../components/button';
 import {Link} from 'react-router-dom';
 
@@ -36,6 +36,6 @@ const Typing = ({ content = "", speed = 1000 }) => {
   };
   
 const sample_content = `오늘 당신의 기분은 어떤가요?\n회원가입하고 컬라피에서 나의 심리 상태를 알아보세요!`;
-const Home = () => <Typing content={sample_content} speed={100} />;
+const First = () => <Typing content={sample_content} speed={100} />;
 
-export default Home;
+export default First;

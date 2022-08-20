@@ -5,28 +5,33 @@
     padding: basic_padding;
 }
 
-.template_image {
-    padding: basic_padding;
-    width: 80%;
+.recommand_box {
+    /* border: 1px solid red; */
 }
 
-.color_list_wrap {
-}
-
-.color_list {
+.recommand_list {
     margin: 0;
     padding: 0;
-}
-.color_item {
     display: flex;
-    flex-direction: row;
-    justify-content:space-around;
+    flex-direction: column;
+}
+
+.recommand_item {
+    /* display: flex; */
+    /* flex-direction: row; */
+    
     list-style: none;
     margin: 0;
     padding: calc(basic_padding/2);
 }
 
-.color_color {
+.recommand_wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
+
+.recommand_color {
     width: 70px;
     height: 70px;
     border: 1px solid color_gray;
@@ -34,7 +39,15 @@
     margin: calc(basic_padding/2);
 }
 
-.color_define {
+.recommand_effect {
     width: 70%;
     margin: auto;
 }
+
+
+.template_image {
+    padding: basic_padding;
+    margin: auto;
+    width: 100%;
+}
+

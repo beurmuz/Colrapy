@@ -1,38 +1,64 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './templates.module.css';
-import Button from '../../components/button';
-import { Link } from 'react-router-dom';
 
-const ChooseTemplates = (props) => {
-    const { recommand_colors } = props;
+const ChooseTemplates = () => {
+    let [baseImages, setBaseImages] = useState({});
+    let navigate = useNavigate();
 
-    const template_list = recommand_colors.map((color, index) => 
-        <div>
-            <div className={styles.choice_wrap}>
-                <input type='checkbox' className={styles.template_check}/>
-                <div style={{backgroundColor: color.code}} className={styles.template_color}></div>
-                <span className={styles.template_colorname}>{color.color}</span>
+    // 서버로부터 결과 받아오기
+    const getResult = async() => {
+        await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/')
+            .then((response) => {
+                setBaseImages(response.data.base_images);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    useEffect(() => {
+        getResult();
+    }, []);
+
+    // img object -> img array
+    let images = [];
+    const objToImgs = Object.entries(baseImages);
+    for(let [key, value] of objToImgs) {
+        images.push(value);
+    }
+
+    // 특정 템플릿 클릭 시 라우팅과 함께 클릭한 템플릿 주소 props로 넘기기
+    const handleRouting = (e) => {
+        let template_name = `line_image${e.target.alt}`;
+        navigate('/canvas/painting', {
+            state: {
+                t_name: template_name
+            }
+        });
+    }
+
+    // UI 생성
+    const templateList = images.map((img, index) => {
+        return (
+            <div>
+                <li key={`{img}`} className={styles.templates_item}>
+                    <img className={styles.templates_image} src={img} alt={index+1} onClick={handleRouting}/>
+                 </li>
             </div>
-            
-            <li key={index} className={styles.templates_item}>
-                <img className={styles.templates_image} src={color.imageUrl} alt='templates' />
-            </li>
-        </div>
-    );
+        )
+    });
 
     return (
         <div className={styles.choose_box}>
-            <h3 className={styles.page_title}>컬라피가 추천하는 템플릿들</h3>
-            <p>아래의 템플릿 중 하나를 골라보세요!</p>
+            <h3 className={styles.page_title}>템플릿 선택</h3>
+            <p>컬러링을 원하는 템플릿을 클릭해보세요!</p>
             <div className={styles.templates_box}>
                 <ul className={styles.templates_list}>
-                    {template_list}
-
+                    {templateList}
                 </ul>
             </div>
-            <Link to={'/canvas/paint'}>
-                <Button content={'선택 완료'}/>
-            </Link>
         </div>
     )
 }

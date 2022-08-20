@@ -16,7 +16,7 @@ const Poll = ({username}) => {
             <Link to={'/canvas/templates'}>
                 <Button content={'더 할래요! 템플릿 선택하러가기'}/>
             </Link>
-            <Link to={'/main'}>
+            <Link to={'/colrapy'}>
                 <Button content={'메인페이지로 가기'} />
             </Link>
         </div>
