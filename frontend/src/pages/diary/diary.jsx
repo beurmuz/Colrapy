@@ -5,6 +5,7 @@ import InputLabel from '../../components/inputLabel';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import HeaderBack from '../../components/headerBack';
 
 const Diary = (props) => {
     const navigate = useNavigate();
@@ -59,32 +60,36 @@ const Diary = (props) => {
     }
     
     return(
-        <div className={styles.diary_box}>
-            <form>
-                <div className={styles.act_choice_box}>
-                    <h2>오늘 무엇을 했나요?</h2>
-                    <p>데이트, 운동, 일, 쇼핑 등 단어로 작성해주세요!</p>
-                    <InputLabel 
-                        name={'activity'} 
-                        placeholder={'데이트'} 
-                        onChange={handleChangeActivity}
+        <>
+            <HeaderBack />
+            <div className={styles.content}>
+                <form>
+                    <div className={styles.act_choice_box}>
+                        <h2>오늘, 무엇을 하셨나요?</h2>
+                        <p className={styles.detail_text}>당신이 한 사소한 활동, 그 무엇을 작성해도 괜찮아요. 생각나는 만큼 간단히 작성해주세요.</p>
+                        <InputLabel 
+                            name={'activity'} 
+                            placeholder={'데이트, 쇼핑 등 단어로 작성해주세요.'} 
+                            onChange={handleChangeActivity}
+                        />
+                    </div>
+                    <div className={styles.write_box}>
+                        <h2>기분은 어떠셨나요?</h2>
+                        <p className={styles.detail_text}>오늘 하루를 지내며 느낀 감정에 대해 자유롭게 작성해주세요. 길게 작성할수록 컬라피가 당신의 심리상태를 상세하게 분석할 수 있어요! </p>
+                        <InputLabel 
+                            name={'feeling'} 
+                            placeholder={'오늘의 감정을 자유롭게 작성해주세요.'}
+                            onChange={handleChangeFeeling}
+                        />
+                    </div>
+                    <Button 
+                        content={'계속하기'} 
+                        whiteback={true}
+                        _onClick={handleSubmit}
                     />
-                </div>
-                <div className={styles.write_box}>
-                    <h2>기분이 어땠나요?</h2>
-                    <p>해당 활동을 하면서 느낀 감정에 대해 자유롭게 작성해주세요. 길게 작성할수록 컬라피가 기분을 상세하게 분석할 수 있어요! </p>
-                    <InputLabel 
-                        name={'feeling'} 
-                        placeholder={'오랜만에 데이트를 했다. 오랜만이라 반가웠지만 만나자마자 남자친구와 다퉈서 속상했다.'}
-                        onChange={handleChangeFeeling}
-                    />
-                </div>
-                <Button 
-                    content={'기록하기 ✨'} 
-                    _onClick={handleSubmit}
-                />
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     );
 }
 
