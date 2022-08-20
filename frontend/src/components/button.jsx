@@ -2,7 +2,8 @@ import React from 'react';
 import styles from './button.module.css'
 
 const Button = (props) => {
-    const { domain_name, content, _onClick } = props;
+    const { domain_name, content, whiteback, _onClick } = props;
+
     function find_color(domain_name) {
         if(domain_name) {
             if(domain_name === 'kakao') {
@@ -11,7 +12,11 @@ const Button = (props) => {
                 return <button className={styles.naver}> {content} </button>;
             }
         } else {
-            return <button> {content} </button>;
+            if(whiteback) {
+                return <button className={styles.whiteback}> {content} </button>;
+            } else {
+                return <button> {content} </button>;
+            }
         }
     }
 
