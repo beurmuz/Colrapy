@@ -1,8 +1,21 @@
-@value basic_padding from '../../common/set.css';
+@value basic_padding, content_height from '../../common/set.css';
+@value color_gray, color_black, color_main from '../../common/colors.css';
 
-.info_box {
-    height: 100%;
+.app {
+    background-image: hidden;
+}
+
+.page_title {
+    color: color_black;
+}
+
+.content {
+    height: content_height;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: basic_padding;
+    background-color: color_main;
 }
 
 .login_box, .join_box {
@@ -14,8 +27,14 @@
     margin-bottom: 2rem;
 }
 
+.join_text {
+    font-size: 1rem;
+    margin: auto 0;
+    padding: 1rem;
+}
 
-.find_box {
+
+/* .find_box {
     padding: basic_padding;
     font-size: 1.2rem;
-}
+} */

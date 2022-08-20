@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import InputLabel from '../../components/inputLabel';
 import { useState } from 'react';
 import axios from 'axios';
+import HeaderBack from '../../components/headerBack';
 
 const Login = (props) => {
   const navigate = useNavigate();
@@ -80,19 +81,24 @@ const Login = (props) => {
         });
     }
 
+    const page_title = `컬라피 진단받고
+    힐링하러 가볼까요?`;
     return (
-        <div className={styles.info_box}>
+        <>
+          <HeaderBack />
+          <div className={styles.content}>
+            <h2 className={styles.page_title}>
+              {page_title}
+            </h2>
             <div className={styles.login_box}>
-                <h2 className={styles.page_title}>로그인</h2>
                 <form className={styles.login_form} >
-                    <InputLabel label='아이디' name='email' placeholder='가입 시 작성한 이메일을 입력해주세요.' type='email' required onChange={e => setemail(e.target.value)}/>
-                    <InputLabel label='비밀번호' name='password' placeholder='비밀번호를 입력하세요.' type='password' required onChange={e => setPassword(e.target.value)}/>
-                    <Button content={'로그인'} _onClick={login}/>
+                    <InputLabel label='아이디' name='email' placeholder='이메일을 입력해 주세요.' type='email' required onChange={e => setemail(e.target.value)}/>
+                    <InputLabel label='비밀번호' name='password' placeholder='비밀번호를 입력해 주세요.' type='password' required onChange={e => setPassword(e.target.value)}/>
+                    <Button content={'로그인'} whiteback={true} _onClick={login}/>
                 </form>
             </div>
             <div className={styles.join_box}>
-                <h2 className={styles.page_title}>회원가입</h2>
-                <p>아직 회원가입 전인가요?</p>
+                <p className={styles.join_text}>아직 회원가입 전인가요?</p>
                   <Button content={'카카오로 가입하기'} domain_name={'kakao'} _onClick={kakaoLogin} />
                   <Button content={'네이버로 가입하기'} domain_name={'naver'} _onClick={naverLogin} />
             </div>
@@ -100,6 +106,7 @@ const Login = (props) => {
                 <Link to='/user/findpw'>비밀번호 찾기</Link>
             </div> */}
         </div>
+        </>
     );
 }
 
