@@ -8,17 +8,56 @@ import { useState, useRef, useEffect } from 'react';
 import { useCallback } from 'react';
 import Canvas from '../canvas/canvas';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
-const Paint = ({ resultData }) => {
-    const colors = [resultData.color1, resultData.color2, resultData.color3];
-    console.log(colors)
-    const colorList = colors.map((color) => {
+const Paint = () => {
+    let navigate = useNavigate();
+    const location = useLocation();
+    let t_name = location.state.t_name;
+
+    // 서버에서 받아오는 데이터 정보들
+    const [recoColors, setRecoColors] = useState([{}]);
+    const [images, setImages] = useState({});
+    const [background, setBackground] = useState('');
+
+    // 서버에서 색 정보, 템플릿 정보 가져오기
+    const getInfo = async () => {
+        await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/painting/')
+            .then((response) => {
+                setRecoColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
+                setImages({...response.data.line_images});
+                getImage(images);
+            })
+            .catch((error) => {
+                alert('새로고침 해주세요😥');
+            })
+    }
+    
+    useEffect(() => {
+        getInfo();
+    }, []);
+    
+    const getImage = async (images) => {
+        const objToImgs = await Object.entries(images);
+        for(let [key, value] of objToImgs) {
+            if(key === t_name) setBackground(value);
+        }
+    }
+    
+    const colorList = recoColors.map((color) => {
         return (
             <li key={color.code} className={styles.color_color} style={{backgroundColor: color.code}} onClick={() => setColor(color.code)}></li>
         )
     });
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        navigate('/canvas/poll');
+    }
+
+
     const [showPalette, setshowPalette] = useState(false); // 아코디언 메뉴 표시 state
     const [showBrush, setShowBrush] = useState(false); // 브러쉬 사이즈 state
     const [color, setColor] = useState('#000000'); // 색상 변경 state
@@ -139,8 +178,8 @@ const Paint = ({ resultData }) => {
     }, [startPaint, paint, exitPaint]);
     
     const nowColor = { color: color };
-    // const import_background = { backgroundImage: "url('/images/template_image/blue_easy.jpg')" };
-    const import_background = '/images/template_image/blue_easy.jpg';
+    const import_background = background;
+    
 
     return (
         <div className={styles.paint_box}>
@@ -192,28 +231,12 @@ const Paint = ({ resultData }) => {
                     backgroundImage={import_background}
                     exportWithBackgroundImage={true}
                 />
-                {/* <ReactSketchCanvas
-                    ref={canvasRef}
-                    onChange={onChange}
-                    onStroke={(stroke, isEraser) =>
-                    setLastStroke({ stroke, isEraser })
-                    }
-                    {...canvasProps}
-                /> */}
-                {/* <canvas 
-                    ref={canvas_ref}
-                    className={styles.paint_img} 
-                    style={import_background} 
-                    onMouseDown={(e) => setIsPainting(true)}
-                    onMouseUp={(e) => setIsPainting(false)}
-                /> */}
                 {/* <Canvas /> */}
             </div>
-            <Link to={'/canvas/poll'}>
-                <Button 
-                    content={'완성했어요!'} 
-                />
-            </Link>
+            <Button 
+                content={'완성했어요!'} 
+                _onClick={handleClick}
+            />
         </div>
     )
 }

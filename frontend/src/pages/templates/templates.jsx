@@ -31,19 +31,20 @@ const ChooseTemplates = () => {
 
     // 특정 템플릿 클릭 시 라우팅과 함께 클릭한 템플릿 주소 props로 넘기기
     const handleRouting = (e) => {
-        console.log(e.target.src);
+        let template_name = `line_image${e.target.alt}`;
         navigate('/canvas/painting', {
-            img_src: e.target.src
+            state: {
+                t_name: template_name
+            }
         });
     }
-
 
     // UI 생성
     const templateList = images.map((img, index) => {
         return (
             <div>
-                <li key={img+index} className={styles.templates_item}>
-                    <img className={styles.templates_image} src={img} alt='templates' onClick={handleRouting}/>
+                <li key={`{img}`} className={styles.templates_item}>
+                    <img className={styles.templates_image} src={img} alt={index+1} onClick={handleRouting}/>
                  </li>
             </div>
         )

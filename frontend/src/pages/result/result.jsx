@@ -9,8 +9,8 @@ const Result = (props) => {
     let username = '컬라피';
     let [mention, setMention] = useState();
     let [colors, setColors] = useState([{}]);
-    let [bImages, setBImages] = useState([{}]);
-    let [lImages, setLImages] = useState([{}]);
+    let [baseImages, setBaseImages] = useState([{}]);
+    let [lineImages, setLineImages] = useState([{}]);
 
     // 서버로부터 결과 받아오기
     const getResult = async() => {
@@ -21,9 +21,9 @@ const Result = (props) => {
                 // console.log(mention.mention);
                 setColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
                 // console.log(colors[0].color);
-                setBImages([{...response.data.b_images}]);
+                setBaseImages([{...response.data.base_images}]);
                 // console.log(...bImages);
-                setLImages([{...response.data.l_images}]);
+                setLineImages([{...response.data.line_images}]);
                 // console.log(...lImages);
             })
             .catch((error) => {
