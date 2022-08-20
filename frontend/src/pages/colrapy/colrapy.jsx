@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './colrapy.module.css';
 import Button from '../../components/button';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useState } from 'react';
+import Header from '../../components/header';
+import Bottom from '../../components/bottom';
 
 const Colrapy = () => {
+    let navigate = useNavigate();
     let [username, setUsername] = useState('');
     let [userGreeting, setUserGreeting] = useState('');
 
@@ -15,7 +18,12 @@ const Colrapy = () => {
         await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/colrapy')
             .then((response) => {
                 setUsername(response.data.username);
-                setUserGreeting(`${username}님, 어서오세요!\n오늘 하루는 어땠나요? \n일기를 작성하고 컬라피에게 색을 추천받아 컬러링을 해보세요!`);
+                setUserGreeting(`안녕하세요, ${username}님!
+                오늘의 기분은 어떠신가요?
+    
+                감정 일기를 작성하고
+                컬라피에서 제공하는 컬러테라피로
+                오늘 하루를 마무리해보세요.`);
             })
             .catch((error) => {
                 alert('에러가 발생했어요! 😥');
@@ -26,16 +34,22 @@ const Colrapy = () => {
         getUsername();
     }); // 컴포넌트가 실행될 때 한번만 데이터 가져오기
 
+    // 일기 작성페이지로 이동
+    const handleGoDiary = () => {
+        navigate('/diary');
+    }
+
     return( 
-        <div className={styles.main_box}>
-            <div className={styles.intro_content}>
-                {/* <h2>{username}님, 어서오세요! 🤗 <br/>오늘 하루는 어땠나요? <br/> 일기를 작성하고 현재 심리상태를 분석해보세요! </h2> */}
-                <h2>{userGreeting}</h2>
+        <>
+            <Header />
+            <div className={styles.content}>
+                <span className={styles.intro_content}>
+                    {userGreeting}
+                </span>
+                <Button content={'일기 작성하기'} _onClick={handleGoDiary}/>
             </div>
-            <Link to={'/diary'}>
-                <Button content={'일기 작성하기'} />
-            </Link>
-        </div>
+            <Bottom />
+        </>
     );
 }
 
