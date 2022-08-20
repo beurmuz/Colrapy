@@ -1,0 +1,24 @@
+@value color_main, color_gray, color_black from '../common/colors.css';
+@value header_padding, response_width, response_padding from '../common/set.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    padding: header_padding;
+    background-color: color_main;
+}
+
+.back_icon {
+    font-size: 2rem;
+    margin: auto 0;
+    color: color_black;
+}
+
+.back_icon:hover {
+    cursor: pointer;
+}
