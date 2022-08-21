@@ -1,12 +1,12 @@
 @value color_white, color_gray, color_main from './common/colors.css';
-@value response_width, response_padding, basic_padding, screen_padding from './common/set.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Nanum+Gothic:wght@400;700&display=swap');
+@value response_width, response_padding, basic_padding, content_padding, title_padding, flexwrap_padding from './common/set.css';
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard-dynamic-subset.css");
+
 * {
     box-sizing: border-box;
 }
 
 html, body {
-    /* height: 100%; */
     min-height: 100vh;
 }
 
@@ -15,40 +15,65 @@ body {
     height: 100vh;
     margin: 0px;
     font-size: 1.8rem;
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Pretendard';
 }
 
 .app {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 100vh;
+
+    /* 배경 고정 */
+    background: url('./assets/mind.jpg') no-repeat 50% 50% fixed; 
+    /* background: url('./assets/gradient.jpg') no-repeat 50% 50% fixed;  */
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+    
+    /* 스크롤바 */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
+
+.flexwrap {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    min-width: 280px;
+    min-height: 500px;
+    height: 100%;
+    margin: 0 auto;
+    /* padding: flexwrap_padding; */
+    /* border: 0.2px solid color_main; */
+}
+/* 
+.content {
+    min-height: 80vh;
+    padding: content_padding;
+} */
 
 h2 {
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+    white-space: pre-line;
+    text-align: left;
+    padding: title_padding;
     margin: 0;
-    padding: basic_padding;
-    color: color_main;
-}
-
-h3 {
-    font-size: 1.2rem;
-    text-align: center;
-    margin: 0;
-    padding: basic_padding;
-    color: color_main;
+    /* color: color_main; */
 }
 
 button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border: 1px solid;
-    /* border-radius: 0.3rem; */
-    border-radius: 5rem;
+    border: none;
+    border-radius: 1rem;
     color: color_white;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-family: 'Pretendard';
     font-weight: 400;
     transition: transform 100ms ease-in;
 }
@@ -57,27 +82,17 @@ button:hover {
     cursor: pointer;
     transform: scale(1.02);
 }
-
-.header {
-    padding: screen_padding;
-    border-bottom: 1px solid color_gray;
-}
-
-.content {
-    padding: screen_padding;
-    min-height: 90vh;
-}
-
+/* 
 p {
     line-height: 150%;
-}
+} */
 
 
 @media screen and (max-width: response_width) {
     .header {
-        padding: response_padding;
+        /* padding: response_padding; */
     }
     .content {
-        padding: response_padding;
+        /* padding: response_padding; */
     }
 }

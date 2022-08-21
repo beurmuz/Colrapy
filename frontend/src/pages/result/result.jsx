@@ -16,8 +16,6 @@ const Result = (props) => {
     let [lineImages, setLineImages] = useState([{}]);
     let [imgsrc, setImgsrc] = useState([]);
 
-    let images = [];
-
     // 서버로부터 결과 받아오기
     // const getResult = async() => {
     //     await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/diary/result/')

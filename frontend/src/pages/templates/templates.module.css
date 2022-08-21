@@ -30,6 +30,11 @@
     width: 100%;
 }
 
-.templates_image:hover {
+.templates_image:hover, .none_template:hover {
     cursor: pointer;
+}
+
+.none_template {
+    width: 100%;
+    font-size: 1.3rem;
 }

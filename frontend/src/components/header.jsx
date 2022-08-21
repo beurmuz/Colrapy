@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom';
 
-const Header = (props) => {
+const Header = ({ whiteback }) => {
     const navigate = useNavigate();
-
+    
     // 홈으로 가기
     const handleGoHome = () => {
         navigate('/');
@@ -18,7 +18,7 @@ const Header = (props) => {
     }
 
     return (
-        <nav className={styles.header}>
+        <nav className={ whiteback ? styles.whiteback : styles.header }>
             <h1 className={styles.title} onClick={handleGoHome}>
                 Colrapy
             </h1>
@@ -30,6 +30,10 @@ const Header = (props) => {
             </span>
         </nav>
     )
+}
+
+Header.defaultProps = {
+    whiteback: false
 }
 
 export default Header;

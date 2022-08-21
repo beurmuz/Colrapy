@@ -30,9 +30,9 @@
 
 .text_box {
     height: 150px;
-    border: 1px solid color_main;
+    border: 1px solid color_gray;
     resize: none;
-    outline-color: color_main;
+    outline-color: color_black;
     line-height: 25px;
     border-radius: 0.5rem;
     background-color: transparent;

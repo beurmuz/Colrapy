@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 import styles from './first.module.css';
 import Button from '../../components/button';
 import {useNavigate} from 'react-router-dom';
@@ -29,7 +29,7 @@ const First = () => {
         <span className={styles.display_content}>
           {contents}
         </span>
-            <Button content={'회원가입 / 로그인 하기'} _onClick={handleGoLogin}/>
+        <Button content={'회원가입 / 로그인 하기'} _onClick={handleGoLogin}/>
       </div>
       <Bottom />
     </>

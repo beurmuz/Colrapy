@@ -1,4 +1,4 @@
-@value color_main from '../common/colors.css';
+@value color_orange, color_main from '../common/colors.css';
 @value response_width, response_padding, basic_padding, button_padding from '../common/set.css';
 
 .login_box {
@@ -26,7 +26,7 @@ button {
 }
 
 .whiteback {
-    background-color: #FF9343;
+    background-color: color_orange;
 }
 
 @media screen and (max-width: response_width) {

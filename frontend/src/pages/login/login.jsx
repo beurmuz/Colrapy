@@ -32,53 +32,64 @@ const Login = (props) => {
     };
 
     // login 버튼 클릭 시 api호출
-    const login = async (e) => {
+    // const login = async (e) => {
+    //   e.preventDefault();
+
+    //   // email, password 칸 검사
+    //   if(!checkInputValue(email, password)) return;
+    //   try {
+    //     await axios.post('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/users/login/', {
+    //       email: email,
+    //       password: password
+    //     }, {
+    //       headers: { "Content-Type": "application/json" }
+    //     });
+    //     alert('로그인에 성공했습니다! 🥰');
+    //     setTimeout(() => {
+    //       navigate('/colrapy');
+    //     }, 1000);
+    //   } catch(error) {
+    //     alert('로그인에 실패했습니다. 😥');
+    //   }
+    // }
+
+
+    // 테스트용 코드
+    const login = (e) => {
       e.preventDefault();
 
       // email, password 칸 검사
       if(!checkInputValue(email, password)) return;
-      try {
-        await axios.post('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/users/login/', {
-          email: email,
-          password: password
-        }, {
-          headers: { "Content-Type": "application/json" }
-        });
         alert('로그인에 성공했습니다! 🥰');
         setTimeout(() => {
           navigate('/colrapy');
         }, 1000);
-      } catch(error) {
-        alert('로그인에 실패했습니다. 😥');
-      }
     }
 
-    // 카카오 로그인 버튼 클릭 시 api호출
+    // 카카오 로그인 버튼 클릭 시 api호출 - 서버 연결 시 주석 풀기
     const kakaoLogin = async (e) => {
       e.preventDefault();
       
-      await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/users/login/kakao/')
-        .then((response) => {
-          console.log(response.data.link); // tmp: 연결 확인 데이터
+      // await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/users/login/kakao/')
+        // .then((response) => {
           navigate('/users/login/kakao/');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        // })
+        // .catch((error) => {
+          // console.log(error);
+        // });
     }
 
-    // 카카오 로그인 버튼 클릭 시 api호출
+    // 네이버 로그인 버튼 클릭 시 api호출 - 서버 연결 시 주석 풀기
     const naverLogin = async (e) => {
       e.preventDefault();
       
-      await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/users/login/naver/')
-        .then((response) => {
-          console.log(response.data.link); // tmp: 연결 확인 데이터
+      // await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/users/login/naver/')
+        // .then((response) => {
           navigate('/users/login/naver/');
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+        // })
+        // .catch((error) => {
+          // console.log(error);
+        // });
     }
 
     const page_title = `컬라피 진단받고
