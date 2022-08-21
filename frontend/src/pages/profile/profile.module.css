@@ -1,6 +1,26 @@
 @value basic_padding from '../../common/set.css';
-@value color_white, color_gray, color_main, color_main_soft from '../../common/colors.css';
+@value color_white, color_gray, color_main from '../../common/colors.css';
+
+.content {
+    height: 90%;
+    padding: basic_padding;
+    width: 100%;
+    background-color: color_main;
+    display: flex;
+    flex-direction: column;
+}
+
+.button_list {
+    margin: 2rem 0;
+}
 
 .controlbar_accordion {
-    padding: calc(basic_padding);
+    padding: 2rem 1rem;
+}
+
+/* 아이폰 SE 사이즈 고려 */
+@media screen and (max-width: 400px) {
+    .content {
+        height: 110%;
+    }
 }
