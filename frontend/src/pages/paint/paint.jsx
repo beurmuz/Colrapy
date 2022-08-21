@@ -10,6 +10,8 @@ import Canvas from '../canvas/canvas';
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import data from '../../data/painting.json';
+import Header from '../../components/header';
 
 
 const Paint = () => {
@@ -22,33 +24,47 @@ const Paint = () => {
     const [images, setImages] = useState({});
     const [background, setBackground] = useState('');
 
-    // 서버에서 색 정보, 템플릿 정보 가져오기
-    const getInfo = async () => {
-        await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/painting/')
-            .then((response) => {
-                setRecoColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
-                setImages({...response.data.line_images});
-                getImage(images);
-            })
-            .catch((error) => {
-                alert('새로고침 해주세요😥');
-            })
+    // // 서버에서 색 정보, 템플릿 정보 가져오기
+    // const getInfo = async () => {
+    //     await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/painting/')
+    //         .then((response) => {
+    //             setRecoColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
+    //             setImages({...response.data.line_images});
+    //             getImage(images);
+    //         })
+    //         .catch((error) => {
+    //             alert('새로고침 해주세요😥');
+    //         })
+    // }
+
+    // 임시 데이터
+    const getInfo = () => {
+        setRecoColors([{ ...data.color1 },{ ...data.color2 }, { ...data.color3 }]);
+        setImages({...data.line_images});
+        // getImage(images);
     }
     
     useEffect(() => {
         getInfo();
-    }, []);
-    
-    const getImage = async (images) => {
-        const objToImgs = await Object.entries(images);
+
+        if(t_name === 'none') setBackground('');
+        const objToImgs = Object.entries(images);
         for(let [key, value] of objToImgs) {
             if(key === t_name) setBackground(value);
         }
-    }
+        console.log(background);
+    }, []);
+    
+    // const getImage = async (images) => {
+    //     const objToImgs = await Object.entries(images);
+    //     for(let [key, value] of objToImgs) {
+    //         if(key === t_name) setBackground(value);
+    //     }
+    // }
     
     const colorList = recoColors.map((color) => {
         return (
-            <li key={color.code} className={styles.color_color} style={{backgroundColor: color.code}} onClick={() => setColor(color.code)}></li>
+            <li key={color.code} className={styles.reco_color} style={{backgroundColor: color.code}} onClick={() => setColor(color.code)}></li>
         )
     });
 
@@ -182,62 +198,66 @@ const Paint = () => {
     
 
     return (
-        <div className={styles.paint_box}>
-            <div className={styles.controlbar_box}>
-                <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_undo} icon={faArrowRotateLeft} onClick={() => undoHandler()}/>
+        <>
+            <Header whiteback={true} />
+            <div className={styles.content}>
+                <div className={styles.controlbar_box}>
+                    <div className={styles.control_element}>
+                        <FontAwesomeIcon className={styles.icon_undo} icon={faArrowRotateLeft} onClick={() => undoHandler()}/>
+                    </div>
+                    <div className={styles.control_element}>
+                        <FontAwesomeIcon className={styles.icon_fill} icon={faFillDrip} />
+                        
+                    </div>
+                    <div className={styles.control_element}>
+                        <FontAwesomeIcon className={styles.icon_brush} icon={faPaintbrush} onClick={() => setShowBrush(!showBrush)}/>
+                    </div>
+                    <div className={styles.control_element}>
+                        <FontAwesomeIcon className={styles.icon_color} icon={faPalette} style={nowColor}  onClick={() => setshowPalette(!showPalette)}/>
+                    </div>  
+                    <div className={styles.control_element}>
+                        <FontAwesomeIcon className={styles.icon_save} icon={faCloudArrowDown} onClick={() => exportImageHandler()}/>    
+                    </div>
                 </div>
-                <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_fill} icon={faFillDrip} />
-                    
-                </div>
-                <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_brush} icon={faPaintbrush} onClick={() => setShowBrush(!showBrush)}/>
-                </div>
-                <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_color} icon={faPalette} style={nowColor}  onClick={() => setshowPalette(!showPalette)}/>
-                </div>  
-                <div className={styles.control_element}>
-                    <FontAwesomeIcon className={styles.icon_save} icon={faCloudArrowDown} onClick={() => exportImageHandler()}/>    
-                </div>
-            </div>
-            { showBrush ? <div className={styles.controlbar_accordion}>
-                            <div className={styles.brush_box}>
-                                <ol className={styles.brush_list}>
-                                    <div className={styles.brush_size} onClick={() => setBrushSize(1)}>1</div>
-                                    <div className={styles.brush_size} onClick={() => setBrushSize(5)}>2</div>
-                                    <div className={styles.brush_size} onClick={() => setBrushSize(10)}>3</div>
-                                    <div className={styles.brush_size} onClick={() => setBrushSize(15)}>4</div>
-                                    <div className={styles.brush_size} onClick={() => setBrushSize(20)}>5</div>
-                                </ol>
+                { showBrush ? <div className={styles.controlbar_accordion}>
+                                <div className={styles.brush_wrap}>
+                                    <div className={styles.brush_box}>
+                                        <div className={styles.brush_size} style={{fontSize: '10px', color: color}} onClick={() => setBrushSize(3)}>●</div>
+                                        <div className={styles.brush_size} style={{fontSize: '15px', color: color}} onClick={() => setBrushSize(6)}>●</div>
+                                        <div className={styles.brush_size} style={{fontSize: '20px', color: color}} onClick={() => setBrushSize(10)}>●</div>
+                                        <div className={styles.brush_size} style={{fontSize: '25px', color: color}} onClick={() => setBrushSize(15)}>●</div>
+                                        <div className={styles.brush_size} style={{fontSize: '30px', color: color}} onClick={() => setBrushSize(20)}>●</div>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
-                        : ''}
-            { showPalette ? <div className={styles.controlbar_accordion}>
-                                <div className={styles.recommand_box}>
-                                    {colorList}
-                                </div>
-                                <div className={styles.responsive} > 
-                                    <HexColorPicker color={color} onChange={setColor}/>
-                                </div>
-                            </div> 
                             : ''}
-            <div className={styles.canvas_container}>
-                <ReactSketchCanvas 
-                    ref={canvasRef}
-                    height='25rem'
-                    strokeWidth={brushSize}
-                    strokeColor={color}
-                    backgroundImage={import_background}
-                    exportWithBackgroundImage={true}
+                { showPalette ? <div className={styles.controlbar_accordion}>
+                                    <div className={styles.recommand_box}>
+                                        {colorList}
+                                    </div>
+                                    <div className={styles.responsive} > 
+                                        <HexColorPicker color={color} onChange={setColor}/>
+                                    </div>
+                                </div> 
+                                : ''}
+                <div className={styles.canvas_container}>
+                    <ReactSketchCanvas 
+                        ref={canvasRef}
+                        height='350px'
+                        strokeWidth={brushSize}
+                        strokeColor={color}
+                        backgroundImage={import_background}
+                        exportWithBackgroundImage={true}
+                    />
+                    {/* <Canvas /> */}
+                </div>
+                <Button 
+                    content={'완성했어요!'} 
+                    _onClick={handleClick}
+                    whiteback={true}
                 />
-                {/* <Canvas /> */}
             </div>
-            <Button 
-                content={'완성했어요!'} 
-                _onClick={handleClick}
-            />
-        </div>
+        </>        
     )
 }
 
