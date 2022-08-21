@@ -1,44 +1,35 @@
 @value basic_padding from '../../common/set.css';
+@value color_orange, color_white, color_gray, color_main, color_black from '../../common/colors.css';
 
-.choose_box {
+.content {
     padding: basic_padding;
+    background-color: color_main;
+}
+
+.page_info {
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 300;
 }
 
 .templates_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
 }
 
 .templates_item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     list-style: none;
-    margin: 0;
-    padding: calc(basic_padding/2);
-}
-
-.choice_wrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-}
-
-.template_color {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 10rem;
-    margin-right: calc(basic_padding/2);
-}
-
-span {
-    font-size: 20px;
+    margin: 2rem 0;
 }
 
 .templates_image {
-    padding: basic_padding;
-    width: 80%;
+    width: 100%;
 }
 
+.templates_image:hover {
+    cursor: pointer;
+}
