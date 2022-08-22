@@ -10,8 +10,18 @@
     flex-direction: column;
 }
 
-.button_list {
+.userIcon {}
+
+.click_list {
     margin: 2rem 0;
+}
+
+.list_content {
+    text-align: left;
+    font-size: 1.3rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid color_gray;
+    cursor: pointer;
 }
 
 .controlbar_accordion {

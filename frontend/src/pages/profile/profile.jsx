@@ -107,8 +107,13 @@ const Profile = (props) => {
         <>
             <Header whiteback={true} />
             <div className={styles.content}>
-                <div className={styles.button_list}>
-                    <Button content={'프로필 수정하기'} whiteback={true} _onClick={() => setshowProfile(!showProfile)} />
+                <div className={styles.click_list}>
+                    <div className={styles.list_content} onClick={handleGoMain} >
+                        로그아웃
+                    </div>
+                    <div className={styles.list_content} onClick={() => setshowProfile(!showProfile)} >
+                        프로필 수정하기
+                    </div>
                     { showProfile 
                     ? <div className={styles.controlbar_accordion} >
                             <form> 
@@ -120,7 +125,6 @@ const Profile = (props) => {
                             <Button content={'수정 완료'} whiteback={true} _onClick={updateUserInfo} />
                         </div>
                     : ''}
-                    <Button content={'로그아웃'} whiteback={true} _onClick={handleGoMain} />
                 </div>
             </div>
         </>
