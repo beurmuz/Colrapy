@@ -46,15 +46,17 @@ const Paint = () => {
     
     useEffect(() => {
         getInfo();
+        objToArray(t_name, images);
+    });
 
+    // object to array
+    const objToArray = (t_name, images) => {
         if(t_name === 'none') setBackground('');
         const objToImgs = Object.entries(images);
         for(let [key, value] of objToImgs) {
             if(key === t_name) setBackground(value);
         }
-        
-        console.log(background);
-    }, []);
+    }
     
     // const getImage = async (images) => {
     //     const objToImgs = await Object.entries(images);

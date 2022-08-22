@@ -27,18 +27,18 @@ const ChooseTemplates = () => {
 
     useEffect(() => {
         getResult();
+        objToArray(baseImages)
+    });
 
-        // img object -> img array
+    // object to array
+    const objToArray = (baseImages) => {
         let images = [];
         const objToImgs = Object.entries(baseImages);
         for(let [key, value] of objToImgs) {
             images.push(value);
         }
         setImgsrc(images);
-        console.log(imgsrc);
-    }, []);
-
-
+    }
 
     // 특정 템플릿 클릭 시 라우팅과 함께 클릭한 템플릿 주소 state로 넘기기
     const handleRouting = (e) => {

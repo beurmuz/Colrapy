@@ -46,7 +46,11 @@ const Result = (props) => {
 
     useEffect(() => {
         getResult();
+        objToArray(baseImages);
+    });
 
+    // object to array
+    const objToArray = (baseImages) => {
         if(baseImages) {
             let objToImgs = Object.entries(...baseImages);
             let images = [];
@@ -54,9 +58,8 @@ const Result = (props) => {
                 images.push(value);
             }
             setImgsrc(images);
-            console.log(images);
         }
-    }, []);
+    }
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -91,7 +94,6 @@ const Result = (props) => {
         )
     }) ;
 
-    console.log(imgsrc);
     // 템플릿 UI
     const templateList = imgsrc.map((img, index) => {
         return <img className={styles.template_image} alt={index+1} src={img}/>;
