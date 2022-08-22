@@ -29,27 +29,27 @@ const Profile = (props) => {
     }
 
     // 서버로부터 사용자 정보 받아오기
-    // const getUserInfo = async() => {
-    //     await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/profile',{
-    //         params: {email: email}
-    //     })
-    //         .then((response) => {
-    //             setEmail(response.data.email);
-    //             setAge(response.data.age);
-    //             setUsername(response.data.username);
-    //             // setPassword(response.data.password);
-    //         })
-    //         .catch((error) => {
-    //             alert('오류가 발생했어요. 새로고침 해주세요.😥');
-    //         })
-    // }
+    const getUserInfo = async() => {
+        await axios.get('url',{
+            params: {email: email}
+        })
+            .then((response) => {
+                setEmail(response.data.email);
+                setAge(response.data.age);
+                setUsername(response.data.username);
+                // setPassword(response.data.password);
+            })
+            .catch((error) => {
+                alert('오류가 발생했어요. 새로고침 해주세요.😥');
+            })
+    }
 
     // 임시 코드
-    const getUserInfo = () => {
-        setEmail(data.email);
-        setAge(data.age);
-        setUsername(data.username);
-    }
+    // const getUserInfo = () => {
+    //     setEmail(data.email);
+    //     setAge(data.age);
+    //     setUsername(data.username);
+    // }
 
 
     useEffect(() => {
@@ -66,38 +66,38 @@ const Profile = (props) => {
     }
 
     // 프로필 수정 시
-    // const updateUserInfo = async() => {
-    //     if(!checkInput(password)) return;
-    //     await axios.put('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/profile', {
-    //         age: age,
-    //         username: username,
-    //         password: password
-    //     },{
-    //         params: {email: email}
-    //     })
-    //         .then((response) => {
-    //             alert('수정이 완료되었어요! 잠시 후 메인으로 이동합니다.');
-    //             setTimeout(() => {
-    //                 navigate('/colrapy');
-    //             }, 2000);
-    //         })
-    //         .catch((error) => {
-    //             alert('오류가 발생했어요. 새로고침 해주세요.😥');
-    //         })
-    // }
-
-    // 임시 코드2
     const updateUserInfo = async() => {
         if(!checkInput(password)) return;
-        setAge(age);
-        setUsername(username);
-        setPassword(password);
-        
-        alert('수정이 완료되었어요! 잠시 후 메인으로 이동합니다.');
-        setTimeout(() => {
-            navigate('/colrapy');
-        }, 2000);
+        await axios.put('url', {
+            age: age,
+            username: username,
+            password: password
+        },{
+            params: {email: email}
+        })
+            .then((response) => {
+                alert('수정이 완료되었어요! 잠시 후 메인으로 이동합니다.');
+                setTimeout(() => {
+                    navigate('/colrapy');
+                }, 2000);
+            })
+            .catch((error) => {
+                alert('오류가 발생했어요. 새로고침 해주세요.😥');
+            })
     }
+
+    // 임시 코드2
+    // const updateUserInfo = async() => {
+    //     if(!checkInput(password)) return;
+    //     setAge(age);
+    //     setUsername(username);
+    //     setPassword(password);
+        
+    //     alert('수정이 완료되었어요! 잠시 후 메인으로 이동합니다.');
+    //     setTimeout(() => {
+    //         navigate('/colrapy');
+    //     }, 2000);
+    // }
 
     const handleGoMain = () => {
         navigate('/colrapy');

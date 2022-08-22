@@ -5,8 +5,6 @@ import Button from '../../components/button';
 import styles from './findpw.module.css';
 
 const Findpw = ({email}) => {
-    // const [email, set_email] = useState('');
-
     return (
         <div className={styles.find_password_box}>
             <h2 className={styles.page_title}> 비밀번호 찾기 </h2>

@@ -11,34 +11,34 @@ const ChooseTemplates = () => {
     let navigate = useNavigate();
 
     // // 서버로부터 결과 받아오기
-    // const getResult = async() => {
-    //     await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/')
-    //         .then((response) => {
-    //             setBaseImages(response.data.base_images);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }
-
-    const getResult = () => {
-        setBaseImages(data.base_images);
+    const getResult = async() => {
+        await axios.get('url')
+            .then((response) => {
+                setBaseImages(response.data.base_images);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
+
+    // const getResult = () => {
+    //     setBaseImages(data.base_images);
+    // }
 
     useEffect(() => {
         getResult();
+        objToArray(baseImages)
+    });
 
-        // img object -> img array
+    // object to array
+    const objToArray = (baseImages) => {
         let images = [];
         const objToImgs = Object.entries(baseImages);
         for(let [key, value] of objToImgs) {
             images.push(value);
         }
         setImgsrc(images);
-        console.log(imgsrc);
-    }, []);
-
-
+    }
 
     // 특정 템플릿 클릭 시 라우팅과 함께 클릭한 템플릿 주소 state로 넘기기
     const handleRouting = (e) => {

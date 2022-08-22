@@ -24,45 +24,38 @@ const Paint = () => {
     const [images, setImages] = useState({});
     const [background, setBackground] = useState('');
 
-    // // 서버에서 색 정보, 템플릿 정보 가져오기
-    // const getInfo = async () => {
-    //     await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/canvas/painting/')
-    //         .then((response) => {
-    //             setRecoColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
-    //             setImages({...response.data.line_images});
-    //             getImage(images);
-    //         })
-    //         .catch((error) => {
-    //             alert('새로고침 해주세요😥');
-    //         })
-    // }
+    // 서버에서 색 정보, 템플릿 정보 가져오기
+    const getInfo = async () => {
+        await axios.get('url')
+            .then((response) => {
+                setRecoColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
+                setImages({...response.data.line_images});
+            })
+            .catch((error) => {
+                alert('새로고침 해주세요😥');
+            })
+    }
 
     // 임시 데이터
-    const getInfo = () => {
-        setRecoColors([{ ...data.color1 },{ ...data.color2 }, { ...data.color3 }]);
-        setImages({...data.line_images});
-        // getImage(images);
-    }
+    // const getInfo = () => {
+    //     setRecoColors([{ ...data.color1 },{ ...data.color2 }, { ...data.color3 }]);
+    //     setImages({...data.line_images});
+    // }
     
     useEffect(() => {
         getInfo();
+        objToArray(t_name, images);
+    });
 
+    // object to array
+    const objToArray = (t_name, images) => {
         if(t_name === 'none') setBackground('');
         const objToImgs = Object.entries(images);
         for(let [key, value] of objToImgs) {
             if(key === t_name) setBackground(value);
         }
-        
-        console.log(background);
-    }, []);
-    
-    // const getImage = async (images) => {
-    //     const objToImgs = await Object.entries(images);
-    //     for(let [key, value] of objToImgs) {
-    //         if(key === t_name) setBackground(value);
-    //     }
-    // }
-    
+    }
+
     const colorList = recoColors.map((color) => {
         return (
             <li key={color.code} className={styles.reco_color} style={{backgroundColor: color.code}} onClick={() => setColor(color.code)}></li>
