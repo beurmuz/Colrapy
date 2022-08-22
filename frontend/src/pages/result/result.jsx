@@ -17,32 +17,32 @@ const Result = (props) => {
     let [imgsrc, setImgsrc] = useState([]);
 
     // 서버로부터 결과 받아오기
-    // const getResult = async() => {
-    //     await axios.get('https://16c2b227-f591-4fed-b28a-4e43d84fdd27.mock.pstmn.io/diary/result/')
-    //         .then((response) => {
-    //             // console.log(response.data);
-    //             setMention(response.data.mention.mention); //ok
-    //             // console.log(mention.mention);
-    //             setColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
-    //             // console.log(colors[0].color);
-    //             setBaseImages([{...response.data.base_images}]);
-    //             // console.log(...bImages);
-    //             setLineImages([{...response.data.line_images}]);
-    //             // console.log(...lImages);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         });
-    // }
+    const getResult = async() => {
+        await axios.get('url')
+            .then((response) => {
+                // console.log(response.data);
+                setMention(response.data.mention.mention); //ok
+                // console.log(mention.mention);
+                setColors([{ ...response.data.color1 },{ ...response.data.color2 }, { ...response.data.color3 }]);
+                // console.log(colors[0].color);
+                setBaseImages([{...response.data.base_images}]);
+                // console.log(...bImages);
+                setLineImages([{...response.data.line_images}]);
+                // console.log(...lImages);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
     
     // 테스트 data - 서버 죽었을 때
-    const getResult = () => {
-        setMention(data.mention.mention);
-        setColors([{ ...data.color1 },{ ...data.color2 }, { ...data.color3 }]);
-        setBaseImages([{...data.base_images}]);
-        setLineImages([{...data.line_images}]);
-    }
+    // const getResult = () => {
+    //     setMention(data.mention.mention);
+    //     setColors([{ ...data.color1 },{ ...data.color2 }, { ...data.color3 }]);
+    //     setBaseImages([{...data.base_images}]);
+    //     setLineImages([{...data.line_images}]);
+    // }
 
     useEffect(() => {
         getResult();
