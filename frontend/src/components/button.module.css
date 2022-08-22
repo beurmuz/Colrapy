@@ -1,4 +1,4 @@
-@value color_main from '../common/colors.css';
+@value color_orange, color_main from '../common/colors.css';
 @value response_width, response_padding, basic_padding, button_padding from '../common/set.css';
 
 .login_box {
@@ -7,20 +7,26 @@
 
 .button_box {
     padding: button_padding;
+    font-family: 'Pretendard';
 }
 
 button {
     width: 100%;
-    height: 3.7rem;
-    background-color: color_main;
+    height: 3.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .kakao {
     background-color: #FEE500;
+    color: #3D1B1A;
 }
 
 .naver {
     background-color: #1EC800;
+}
+
+.whiteback {
+    background-color: color_orange;
 }
 
 @media screen and (max-width: response_width) {

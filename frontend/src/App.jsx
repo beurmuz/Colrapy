@@ -11,29 +11,30 @@ import Paint from './pages/paint/paint';
 import Canvas from './pages/canvas/canvas';
 import Profile from './pages/profile/profile';
 import Colrapy from './pages/colrapy/colrapy';
+import Bottom from './components/bottom';
 
 function App() {
   return (
     <div className={styles.app}>
-        <BrowserRouter>
-          <div className={styles.header}>
-            <Header />
-          </div>
-          <div className={styles.content}>
-            <Routes>
-              <Route exact path='/' element={ <First /> } />
-              <Route path='/users/login' element={ <Login/> } />
-              <Route path='/colrapy' element={ <Colrapy/> } />
-              <Route path='/diary' element={ <Diary /> } />
-              <Route path='/profile' element={ <Profile /> } />
-              <Route path='/diary/result' element={ <Result /> } />
-              <Route path='/canvas/templates' element={ <ChooseTemplates /> } />
-              <Route path='/canvas/painting' element={ <Paint/> } />
-              <Route path='/canvas/poll' element={ <Poll /> } />
-              {/* <Route path='/canvas' element={ <Canvas /> } /> */}
-            </Routes>
-          </div>
-        </BrowserRouter>
+        <div className={styles.flexwrap}>
+          <BrowserRouter>
+            {/* <div className={styles.content}> */}
+              <Routes>
+                <Route exact path='/' element={ <First /> } />
+                <Route path='/users/login' element={ <Login/> } />
+                <Route path='/colrapy' element={ <Colrapy/> } />
+                <Route path='/diary' element={ <Diary /> } />
+                <Route path='/profile' element={ <Profile /> } />
+                <Route path='/diary/result' element={ <Result /> } />
+                <Route path='/canvas/templates' element={ <ChooseTemplates /> } />
+                <Route path='/canvas/painting' element={ <Paint/> } />
+                <Route path='/canvas/poll' element={ <Poll /> } />
+                {/* <Route path='/canvas' element={ <Canvas /> } /> */}
+              </Routes>
+            {/* </div> */}
+          </BrowserRouter>
+          {/* <Bottom /> */}
+        </div>
     </div>
   );
 }

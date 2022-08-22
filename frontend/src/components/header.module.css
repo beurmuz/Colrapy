@@ -1,23 +1,37 @@
-@value color_main, color_gray from '../common/colors.css';
-@value response_width, response_padding from '../common/set.css';
+@value color_main, color_orange, color_gray from '../common/colors.css';
+@value header_padding, response_width, response_padding from '../common/set.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    /* max-width: 420px;
+    min-width: 280px; */
     margin: 0 auto;
+    padding: header_padding;
+    color: color_main;
 }
 
-a:active, a:link, a:visited {
-    color: color_main;
-    text-decoration: none;
+.whiteback {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* max-width: 420px;
+    min-width: 280px; */
+    margin: 0 auto;
+    padding: header_padding;
+    color: color_orange;
+    background-color: color_main;
 }
 
 .title {
-    color: color_main;
-    font-family: 'Montserrat', sans-serif;
-    font-weight : 800;
+    font-family: 'Noto Serif', serif;
+    font-weight : 400;
     font-size: 2rem;
     margin: auto 0;
 }
@@ -26,9 +40,8 @@ a:active, a:link, a:visited {
 .user_icon {
     font-size: 2rem;
     margin: auto 0;
-    color: color_main;
 }
 
-.user_icon:hover {
+.title:hover, .user_icon:hover {
     cursor: pointer;
 }

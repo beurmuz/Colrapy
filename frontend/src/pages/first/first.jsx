@@ -1,41 +1,39 @@
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 import styles from './first.module.css';
 import Button from '../../components/button';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import Header from "../../components/header";
+import Bottom from "../../components/bottom";
 
-const Typing = ({ content = "", speed = 1000 }) => {
-    const [displayContent, setDisplayContent] = useState("");
-    const [index, setIndex] = useState(0);
-  
-    useEffect(() => {
-      const animationKey = setInterval(() => {
-        setIndex((index) => {        
-          if (index >= content.length - 1) {
-            clearInterval(animationKey);
-            return index;
-          }
-          return index + 1;
-        });
-      }, speed);
-    }, []);
-  
-    useEffect(() => {
-      setDisplayContent((displayContent) => displayContent + content[index]) 
-    }, [index])
-  
-    return( 
-        <div className={styles.main_box}>
-            <div className={styles.intro_content}>
-                <h2 className={styles.display_content}>{displayContent}</h2>
-            </div>
-            <Link to={'/users/login'}>
-                <Button content={'회원가입 / 로그인 하기'} />
-            </Link>
-        </div>
-    );
-  };
-  
-const sample_content = `오늘 당신의 기분은 어떤가요?\n회원가입하고 컬라피에서 나의 심리 상태를 알아보세요!`;
-const First = () => <Typing content={sample_content} speed={100} />;
+const First = () => {
+  const navigate = useNavigate();
+
+  const handleGoLogin = () => {
+    navigate('/users/login');
+  }
+
+  let contents = `오늘, 당신의 기분은 어떠신가요?
+    
+    컬라피는 감정 일기를 통해
+    AI가 사용자의 심리상태를 분석하고
+    컬러테라피 서비스를 제공합니다.
+
+    오늘 하루를 살아가는 당신,
+    컬라피로 힐링하고 가세요.
+    `;
+
+  return( 
+    <>
+      <Header />
+      <div className={styles.content}>
+        <span className={styles.display_content}>
+          {contents}
+        </span>
+        <Button content={'회원가입 / 로그인 하기'} _onClick={handleGoLogin}/>
+      </div>
+      <Bottom />
+    </>
+  );
+}
 
 export default First;
