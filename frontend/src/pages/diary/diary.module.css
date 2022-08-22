@@ -14,15 +14,8 @@
     text-align: left;
 }
 
-.detail_text {
-    font-size: 1.1rem;
-    font-weight: 300;
-    line-height: 150%;
-    white-space: pre-line;
-}
-
 .write_box {
-    margin: 4rem 0;
+    margin: 3rem 0;
 }
 
 .write_content {
@@ -31,3 +24,16 @@
     border: 1px solid color_black;
     border-radius: 0.1rem;
 }
+
+.detail_text {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 150%;
+    white-space: pre-line;
+}
+
+.length_count {
+    font-size: 1rem;
+    text-align: right;
+}
+

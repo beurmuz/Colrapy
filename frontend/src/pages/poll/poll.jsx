@@ -12,7 +12,7 @@ const Poll = () => {
     }
 
     const handleGoMain = () => {
-        navigate('/colrapy')
+        navigate('/colrapy');
     }
 
     return (
@@ -20,8 +20,8 @@ const Poll = () => {
             <Header />
             <div className={styles.content}>
                 <div className={styles.button_box}>
-                    <Button content={'다른 템플릿으로도 컬러링하기'} onClick={handleGoTemplates} />
-                    <Button content={'메인페이지로 가기'} onClick={handleGoMain} />
+                    <Button content={'다른 템플릿으로도 컬러링하기'} _onClick={handleGoTemplates} />
+                    <Button content={'메인페이지로 가기'} _onClick={handleGoMain} />
                 </div>
             </div>
         </>

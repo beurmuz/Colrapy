@@ -11,15 +11,19 @@ const Diary = (props) => {
     const navigate = useNavigate();
     let [activity, setActivity] = useState('');
     let [feeling, setFeeling] = useState('');
+    let [actLen, setActLen] = useState(0);
+    let [feelingLen, setFeelingLen] = useState(0);
 
     // activity 값 변경 시 발생하는 함수
     const handleChangeActivity = (e) => {
         setActivity(e.target.value);
+        setActLen(e.target.value.length);
     }
 
     // feeling 값 변경 시 발생하는 함수
     const handleChangeFeeling = (e) => {
         setFeeling(e.target.value);
+        setFeelingLen(e.target.value.length);
     }
 
     // 유효성 및 길이 체크
@@ -28,7 +32,7 @@ const Diary = (props) => {
             alert('빈칸이 있어요.😥 모든 칸을 채워주세요.');
             return false;
         }
-        if(feeling.length < 15) {
+        if(feeling.length < 30) {
             alert('너무 짧아요.😥 오늘 느꼈던 기분에 대해 좀 더 상세하게 작성해주세요!');
             return false;
         }
@@ -85,15 +89,17 @@ const Diary = (props) => {
                             placeholder={'데이트, 쇼핑 등 단어로 작성해주세요.'} 
                             onChange={handleChangeActivity}
                         />
+                        <div className={styles.length_count}>{actLen}/20</div>
                     </div>
                     <div className={styles.write_box}>
                         <h2>기분은 어떠셨나요?</h2>
                         <p className={styles.detail_text}>오늘 하루를 지내며 느낀 감정에 대해 자유롭게 작성해주세요. 길게 작성할수록 컬라피가 당신의 심리상태를 상세하게 분석할 수 있어요! </p>
                         <InputLabel 
                             name={'feeling'} 
-                            placeholder={'오늘의 감정을 자유롭게 작성해주세요.'}
+                            placeholder={'오늘의 감정을 자유롭게 작성해주세요. 최소 30자이상은 작성하셔야해요.'}
                             onChange={handleChangeFeeling}
                         />
+                        <div className={styles.length_count}>{feelingLen}/100</div>
                     </div>
                     <Button 
                         content={'계속하기'} 
