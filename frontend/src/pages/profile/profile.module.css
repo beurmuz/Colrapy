@@ -2,7 +2,7 @@
 @value color_white, color_gray, color_main from '../../common/colors.css';
 
 .content {
-    height: 90%;
+    height: 100%;
     padding: basic_padding;
     width: 100%;
     background-color: color_main;

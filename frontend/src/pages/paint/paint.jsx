@@ -52,6 +52,7 @@ const Paint = () => {
         for(let [key, value] of objToImgs) {
             if(key === t_name) setBackground(value);
         }
+        
         console.log(background);
     }, []);
     
